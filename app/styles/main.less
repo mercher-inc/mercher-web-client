@@ -1,79 +1,83 @@
-/* Space out content a bit */
-body {
-  padding-top: 20px;
-  padding-bottom: 20px;
-}
+@import "/bower_components/bootstrap/less/bootstrap";
+@import url(http://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900,900italic);
 
-/* Everything but the jumbotron gets side spacing for mobile first views */
-.header,
-.marketing,
-.footer {
-  padding-left: 15px;
-  padding-right: 15px;
-}
+@import "variables";
+@import "mixins";
 
-/* Custom page header */
 .header {
-  border-bottom: 1px solid #e5e5e5;
-}
-/* Make the masthead heading the same height as the navigation */
-.header h3 {
-  margin-top: 0;
-  margin-bottom: 0;
-  line-height: 40px;
-  padding-bottom: 19px;
-}
+  margin: 50px 0 25px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
 
-/* Custom page footer */
-.footer {
-  padding-top: 19px;
-  color: #777;
-  border-top: 1px solid #e5e5e5;
-}
+  .logo {
+    background-image: url('/images/logo.svg');
+    background-position: top center;
+    background-repeat: no-repeat;
+    background-size: 150px;
+    width: 150px;
+    height: 150px;
+    padding-top: 100px;
+    margin: 0 auto;
 
-/* Customize container */
-@media (min-width: 768px) {
-  .container {
-    max-width: 730px;
+    h1 {
+      font-size: 30px;
+      font-weight: 300;
+      color: #3DA3A7;
+      text-align: center;
+      line-height: 50px;
+      letter-spacing: 1.5px;
+      margin: 0;
+    }
   }
 }
-.container-narrow > hr {
-  margin: 30px 0;
-}
 
-/* Main marketing message and sign up button */
-.jumbotron {
-  text-align: center;
-  border-bottom: 1px solid #e5e5e5;
-}
-.jumbotron .btn {
-  font-size: 21px;
-  padding: 14px 24px;
-}
+.categories-carousel {
+  display: flex;
+  height: 200px;
+  margin-top: 300px;
 
-/* Supporting marketing content */
-.marketing {
-  margin: 40px 0;
-}
-.marketing p + h4 {
-  margin-top: 28px;
-}
+  .categories-carousel-item {
+    flex-grow: 1;
+    flex-shrink: 0;
+    padding: 0 100px;
+    width: 1200px;
 
-/* Responsive: Portrait tablets and up */
-@media screen and (min-width: 768px) {
-  /* Remove the padding we set earlier */
-  .header,
-  .marketing,
-  .footer {
-    padding-left: 0;
-    padding-right: 0;
-  }
-  /* Space out the masthead */
-  .header {
-    margin-bottom: 30px;
-  }
-  /* Remove the bottom border on the jumbotron for visual effect */
-  .jumbotron {
-    border-bottom: 0;
+    .carousel-item-description {
+      width: 200px;
+      text-align: right;
+      float: left;
+      margin-right: 25px;
+      padding-right: 25px;
+      color: @brand-primary;
+      border-right: 1px solid @brand-primary;
+
+      h2 {
+        margin-top: 0;
+      }
+    }
+
+    .carousel-item-elements {
+      display: flex;
+      flex-direction: column;
+      flex-wrap: wrap;
+      height: 500px;
+      justify-content: flex-start;
+      align-items: flex-start;
+      align-content: flex-start;
+
+      .card {
+        height: 200px;
+        flex-shrink: 0;
+        flex-grow: 0;
+        margin-bottom: 25px;
+
+        img {
+          height: 200px;
+          width: 200px;
+        }
+      }
+    }
   }
 }

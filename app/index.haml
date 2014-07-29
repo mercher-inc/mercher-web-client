@@ -16,21 +16,7 @@
     / endbuild
 
   %body{ng: {app: "mercherWebClientApp"}}
-    .container
-      .header
-        %ul.nav.nav-pills.pull-right
-          %li{ui: {sref: {active: "active"}}}
-            %a{ui: {sref: "home"}}
-              Home
-          %li{ui: {sref: {active: "active"}}}
-            %a{ui: {sref: "about"}}
-              About
-        %h3.text-muted Mercher
-      .ui-view
-      .footer
-        %p
-          %span.glyphicon.glyphicon-heart
-          from the Yeoman team
+    .ui-view
 
     /[if lt IE 9]
       %script{src: "/bower_components/es5-shim/es5-shim.min.js"}

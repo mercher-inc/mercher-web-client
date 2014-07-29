@@ -94,7 +94,7 @@ module.exports = function (grunt) {
       dist: {
         expand: true,
         cwd:    '<%= yeoman.app %>/styles',
-        src:    '*.less', //take only first level
+        src:    'main.less',
         dest:   '<%= yeoman.tmp %>/styles',
         ext:    '.css'
       }
