@@ -33,4 +33,7 @@ angular
                 templateUrl: 'views/about.html',
                 controller:  'AboutCtrl'
             });
+    })
+    .run(function(socket){
+        socket.emit('app_started', {});
     });
