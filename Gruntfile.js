@@ -378,7 +378,7 @@ module.exports = function (grunt) {
                 configFile: '<%= yeoman.test %>/karma.conf.js',
                 singleRun:  true,
                 autoWatch:  true,
-                browsers:   ['Chrome'],
+                browsers:   ['PhantomJS'],
                 logLevel:   'INFO'
             },
             unit:       {},
