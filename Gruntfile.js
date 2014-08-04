@@ -42,11 +42,11 @@ module.exports = function (grunt) {
             },
             js:         {
                 files: '<%= yeoman.app %>/scripts/**/*.js',
-                tasks: ['newer:jshint:all']
+                tasks: ['newer:jshint:all', 'karma:live']
             },
             jsTest:     {
                 files:   '<%= yeoman.test %>/spec/**/*.js',
-                tasks:   ['newer:jshint:test', 'karma'],
+                tasks:   ['newer:jshint:test', 'karma:live'],
                 options: {
                     livereload: true,
                     nospawn:    false
@@ -377,18 +377,21 @@ module.exports = function (grunt) {
             options:    {
                 configFile: '<%= yeoman.test %>/karma.conf.js',
                 singleRun:  true,
-                autoWatch:  true,
+                autoWatch:  false,
                 browsers:   ['PhantomJS'],
                 logLevel:   'INFO'
             },
-            unit:       {},
             live:       {
-                autoWatch: false,
-                browsers:  ['PhantomJS'],
-                logLevel:  'ERROR'
+                coverageReporter: {
+                    type: 'html',
+                    dir:  'coverage/'
+                }
             },
             continuous: {
-                browsers: ['PhantomJS']
+                logLevel:         'ERROR',
+                coverageReporter: {
+                    type: 'teamcity'
+                }
             }
         }
     });
