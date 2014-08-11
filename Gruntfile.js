@@ -390,7 +390,15 @@ module.exports = function (grunt) {
             continuous: {
                 logLevel:         'ERROR',
                 coverageReporter: {
-                    type: 'teamcity'
+                    reporters: [
+                        {
+                            type: 'html',
+                            dir:  'coverage/'
+                        },
+                        {
+                            type: 'teamcity'
+                        }
+                    ]
                 }
             }
         }
