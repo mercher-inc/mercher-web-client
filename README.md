@@ -46,8 +46,8 @@ sudo apt-get install build-essential libssl-dev
 wget -qO- https://raw.githubusercontent.com/creationix/nvm/v0.13.1/install.sh | bash
 source ~/.profile
 nvm ls-remote
-nvm install 0.10.30
-nvm use 0.10.30
+nvm install v0.10.30
+nvm use v0.10.30
 node -v
 ```
 
