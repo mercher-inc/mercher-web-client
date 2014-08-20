@@ -4,7 +4,7 @@ Mercher Web Client
 ## Dev environment requirements
 * [Ubuntu 14.04.1 LTS (Trusty Tahr)](http://releases.ubuntu.com/14.04.1/)
 * [JetBrains WebStorm 8.*](http://www.jetbrains.com/webstorm/download/)
-* [Node.js 0.10.*](http://nodejs.org/download/)
+* [Node.js 0.10.30](http://nodejs.org/download/)
 
 ## Dev environment setup
 At first you should download and setup Ubuntu. Hope you can do it by yourself.
@@ -58,17 +58,14 @@ git clone git@github.com:mercher-inc/mercher-web-client.git
 
 ### Install Node.js
 ```bash
-sudo apt-get install build-essential
-sudo apt-get install curl
-echo 'export PATH=$HOME/local/bin:$PATH' >> ~/.bashrc
-. ~/.bashrc
-mkdir ~/local
-mkdir ~/node-latest-install
-cd ~/node-latest-install
-curl http://nodejs.org/dist/node-latest.tar.gz | tar xz --strip-components=1
-./configure --prefix=~/local
-make install
-curl -L https://npmjs.org/install.sh | sh
+cd ~
+sudo apt-get update
+sudo apt-get install build-essential libssl-dev curl
+curl https://raw.githubusercontent.com/creationix/nvm/v0.7.0/install.sh | sh
+source ~/.profile
+nvm ls-remote
+nvm install 0.10.30
+nvm use 0.10.30
 node -v
 ```
 
