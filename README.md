@@ -68,6 +68,8 @@ git clone git@github.com:mercher-inc/mercher-web-client.git
 ### Install dependencies
 ```bash
 cd ~/work/mercher-inc/mercher-web-client
+nvm install
+nvm use
 npm install
 bower install
 ```
