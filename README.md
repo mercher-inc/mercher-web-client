@@ -75,10 +75,11 @@ bower install
 ```
 
 ### Install WebStorm
-Download WebStorm to the home directory, unpack the WebStorm-8.*.tar.gz file using the following command:
+Download WebStorm and unpack it:
 ```bash
 cd ~
-tar xfz WebStorm-8.*.tar.gz
+wget http://download.jetbrains.com/webstorm/WebStorm-8.0.4.tar.gz
+tar xfz WebStorm-8.0.4.tar.gz
 rm WebStorm-8.0.4.tar.gz
 ```
 
