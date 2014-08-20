@@ -100,6 +100,9 @@ rm WebStorm-8.0.4.tar.gz
 
 ### Open project in WebStorm
 ```bash
+/bin/bash --login
+rvm use 2.1
+nvm use
 ~/WebStorm-135.1063/bin/webstorm.sh
 ```
 Then:
