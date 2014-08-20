@@ -8,13 +8,33 @@ Mercher Web Client
 
 ## Dev environment setup
 At first you should download and setup Ubuntu. Hope you can do it by yourself.
-Then download WebStorm to the home directory, unpack the WebStorm-8.*.tar.gz file using the following command:
+
+## Install JAVA
+Install JAVA
+```bash
+sudo apt-get install python-software-properties
+sudo add-apt-repository ppa:webupd8team/java
+sudo apt-get update
+sudo apt-get install oracle-java7-installer
+```
+Set the "JAVA_HOME" environment variable
+```bash
+sudo nano /etc/environment
+```
+add the following line:
+```
+JAVA_HOME="/usr/lib/jvm/java-7-oracle"
+```
+reload environment file and check variable
+```bash
+source /etc/environment
+echo $JAVA_HOME
+```
+
+## Install WebStorm
+Download WebStorm to the home directory, unpack the WebStorm-8.*.tar.gz file using the following command:
 ```bash
 tar xfz WebStorm-8.*.tar.gz
-```
-Now update your local package index:
-```bash
-sudo apt-get update
 ```
 
 ### Install GIT
