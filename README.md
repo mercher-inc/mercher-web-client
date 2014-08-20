@@ -42,8 +42,8 @@ and then go through [this manual](https://help.github.com/articles/set-up-git#se
 ```bash
 cd ~
 sudo apt-get update
-sudo apt-get install build-essential libssl-dev curl
-curl https://raw.githubusercontent.com/creationix/nvm/v0.7.0/install.sh | sh
+sudo apt-get install build-essential libssl-dev
+wget -qO- https://raw.githubusercontent.com/creationix/nvm/v0.13.1/install.sh | bash
 source ~/.profile
 nvm ls-remote
 nvm install 0.10.30
