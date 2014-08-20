@@ -56,6 +56,21 @@ node -v
 npm install -g bower
 ```
 
+### Install Grunt
+```bash
+npm install -g grunt-cli
+```
+
+### Install Ruby
+```bash
+sudo apt-get install curl
+\curl -sSL https://get.rvm.io | bash
+rvm install 2.1
+/bin/bash --login
+rvm use 2.1
+gem install haml
+```
+
 ### Clone repository
 Create working folders and clone project repository:
 ```bash
@@ -68,19 +83,27 @@ git clone git@github.com:mercher-inc/mercher-web-client.git
 ### Install dependencies
 ```bash
 cd ~/work/mercher-inc/mercher-web-client
+nvm install
+nvm use
 npm install
 bower install
 ```
 
 ### Install WebStorm
-Download WebStorm to the home directory, unpack the WebStorm-8.*.tar.gz file using the following command:
+Download WebStorm and unpack it:
 ```bash
-tar xfz WebStorm-8.*.tar.gz
+cd ~
+wget http://download.jetbrains.com/webstorm/WebStorm-8.0.4.tar.gz
+tar xfz WebStorm-8.0.4.tar.gz
 rm WebStorm-8.0.4.tar.gz
 ```
 
 ### Open project in WebStorm
 ```bash
+cd ~/work/mercher-inc/mercher-web-client
+/bin/bash --login
+rvm use 2.1
+nvm use
 ~/WebStorm-135.1063/bin/webstorm.sh
 ```
 Then:
