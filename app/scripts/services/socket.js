@@ -9,7 +9,7 @@
  */
 angular.module('mercherWebClientApp')
     .factory('socket', function ($rootScope) {
-        var socket = window.io.connect('http://localhost:3001');
+        var socket = window.io.connect('http://localhost:3000');
         return {
             on:   function (eventName, callback) {
                 socket.on(eventName, function () {
