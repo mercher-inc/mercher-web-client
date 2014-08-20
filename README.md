@@ -36,7 +36,7 @@ echo $JAVA_HOME
 sudo apt-get install git
 git --version
 ```
-and then go through [this manual](https://help.github.com/articles/set-up-git#setting-up-git) to set up git.
+and then go through [this manual](https://help.github.com/articles/set-up-git#setting-up-git) to set up git and [this manual](https://help.github.com/articles/generating-ssh-keys) to generate ssh keys.
 
 ### Install Node.js
 ```bash
