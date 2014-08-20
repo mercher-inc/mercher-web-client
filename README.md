@@ -4,12 +4,12 @@ Mercher Web Client
 ## Dev environment requirements
 * [Ubuntu 14.04.1 LTS (Trusty Tahr)](http://releases.ubuntu.com/14.04.1/)
 * [JetBrains WebStorm 8.*](http://www.jetbrains.com/webstorm/download/)
-* [Node.js 0.10.*](http://nodejs.org/download/)
+* [Node.js 0.10.30](http://nodejs.org/download/)
 
 ## Dev environment setup
 At first you should download and setup Ubuntu. Hope you can do it by yourself.
 
-## Install JAVA
+### Install JAVA
 Install JAVA
 ```bash
 sudo apt-get install python-software-properties
@@ -31,7 +31,7 @@ source /etc/environment
 echo $JAVA_HOME
 ```
 
-## Install WebStorm
+### Install WebStorm
 Download WebStorm to the home directory, unpack the WebStorm-8.*.tar.gz file using the following command:
 ```bash
 tar xfz WebStorm-8.*.tar.gz
@@ -58,17 +58,14 @@ git clone git@github.com:mercher-inc/mercher-web-client.git
 
 ### Install Node.js
 ```bash
-sudo apt-get install build-essential
-sudo apt-get install curl
-echo 'export PATH=$HOME/local/bin:$PATH' >> ~/.bashrc
-. ~/.bashrc
-mkdir ~/local
-mkdir ~/node-latest-install
-cd ~/node-latest-install
-curl http://nodejs.org/dist/node-latest.tar.gz | tar xz --strip-components=1
-./configure --prefix=~/local
-make install
-curl -L https://npmjs.org/install.sh | sh
+cd ~
+sudo apt-get update
+sudo apt-get install build-essential libssl-dev curl
+curl https://raw.githubusercontent.com/creationix/nvm/v0.7.0/install.sh | sh
+source ~/.profile
+nvm ls-remote
+nvm install 0.10.30
+nvm use 0.10.30
 node -v
 ```
 
@@ -83,6 +80,17 @@ cd ~/work/mercher-inc/mercher-web-client
 npm install
 bower install
 ```
+
+### Open project in WebStorm
+```bash
+~/WebStorm-135.1063/bin/webstorm.sh
+```
+Then:
+* click `Create New Project from Existing Files`;
+* select `Source files are in a local directory, no Web server is yet configured`;
+* set path to `~/work/mercher-inc/mercher-web-client`;
+* click `Project Root` button;
+* click `Finish`.
 
 ### Run Web Client on local server
 ```bash
