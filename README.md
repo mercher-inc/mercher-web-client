@@ -100,6 +100,7 @@ rm WebStorm-8.0.4.tar.gz
 
 ### Open project in WebStorm
 ```bash
+cd ~/work/mercher-inc/mercher-web-client
 /bin/bash --login
 rvm use 2.1
 nvm use
