@@ -61,6 +61,16 @@ npm install -g bower
 npm install -g grunt-cli
 ```
 
+### Install Ruby
+```bash
+sudo apt-get install curl
+\curl -sSL https://get.rvm.io | bash
+rvm install 2.1
+/bin/bash --login
+rvm use 2.1
+gem install haml
+```
+
 ### Clone repository
 Create working folders and clone project repository:
 ```bash
