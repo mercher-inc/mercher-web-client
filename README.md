@@ -9,7 +9,7 @@ Mercher Web Client
 ## Dev environment setup
 At first you should download and setup Ubuntu. Hope you can do it by yourself.
 
-## Install JAVA
+### Install JAVA
 Install JAVA
 ```bash
 sudo apt-get install python-software-properties
@@ -31,7 +31,7 @@ source /etc/environment
 echo $JAVA_HOME
 ```
 
-## Install WebStorm
+### Install WebStorm
 Download WebStorm to the home directory, unpack the WebStorm-8.*.tar.gz file using the following command:
 ```bash
 tar xfz WebStorm-8.*.tar.gz
@@ -80,6 +80,17 @@ cd ~/work/mercher-inc/mercher-web-client
 npm install
 bower install
 ```
+
+### Open project in WebStorm
+```bash
+~/WebStorm-135.1063/bin/webstorm.sh
+```
+Then:
+* click `Create New Project from Existing Files`;
+* select `Source files are in a local directory, no Web server is yet configured`;
+* set path to `~/work/mercher-inc/mercher-web-client`;
+* click `Project Root` button;
+* click `Finish`.
 
 ### Run Web Client on local server
 ```bash
