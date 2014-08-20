@@ -59,11 +59,9 @@ npm install -g bower
 ### Clone repository
 Create working folders and clone project repository:
 ```bash
-cd ~
-mkdir work
-cd work
-mkdir mercher-inc
-cd mercher-inc
+mkdir ~/work
+mkdir ~/work/mercher-inc
+cd ~/work/mercher-inc
 git clone git@github.com:mercher-inc/mercher-web-client.git
 ```
 
