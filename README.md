@@ -56,6 +56,11 @@ node -v
 npm install -g bower
 ```
 
+### Install Grunt
+```bash
+npm install -g grunt-cli
+```
+
 ### Clone repository
 Create working folders and clone project repository:
 ```bash
