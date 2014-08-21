@@ -61,6 +61,11 @@ npm install -g bower
 npm install -g grunt-cli
 ```
 
+### Install PhantomJS
+```bash
+npm install -g phantomjs
+```
+
 ### Install Ruby
 ```bash
 sudo apt-get install curl
