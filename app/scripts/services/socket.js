@@ -27,7 +27,7 @@ angular.module('mercherWebClientApp')
                             callback.apply(socket, args);
                         }
                     });
-                })
+                });
             }
         };
     });

@@ -16,6 +16,7 @@
     / endbuild
 
   %body{ng: {app: "mercherWebClientApp"}}
+    #fb-root
     .ui-view
 
     /[if lt IE 9]
@@ -35,4 +36,5 @@
     %script{src: "scripts/controllers/main.js"}
     %script{src: "scripts/controllers/about.js"}
     %script{src: "scripts/services/socket.js"}
+    %script{src: "scripts/modules/facebook.js"}
     / endbuild

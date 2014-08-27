@@ -15,8 +15,12 @@ angular
         'ngResource',
         'ui.router',
         'ngSanitize',
-        'ngTouch'
+        'ngTouch',
+        'mc.module.facebook'
     ])
+    .config(['facebookProvider', function (facebookProvider) {
+        facebookProvider.configure({appId: '721263977929363'});
+    }])
     .config(function ($locationProvider, $urlRouterProvider, $stateProvider) {
         $locationProvider
             .html5Mode(true)
@@ -34,6 +38,33 @@ angular
                 controller:  'AboutCtrl'
             });
     })
-    .run(function(socket){
+    .run(function ($rootScope, socket, facebook) {
         socket.emit('app_started', {});
+
+        facebook.init();
+
+        $rootScope.$on('fb.auth.statusChange', function (event, authResponse) {
+            console.log(authResponse);
+            if (authResponse.status === 'connected') {
+                facebook
+                    .api('me')
+                    .then(
+                    function (response) {
+                        console.log(response);
+                    },
+                    function (error) {
+                        window.alert(error.message);
+                    });
+            } else {
+                facebook
+                    .login({
+                        'scope': 'public_profile,email'
+                    })
+                    .then(function (response) {
+                        console.log(response);
+                    }, function (error) {
+                        console.log(error);
+                    });
+            }
+        });
     });
