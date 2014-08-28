@@ -106,7 +106,7 @@ Paste config
 Enable site
 ```bash
 sudo a2ensite local.mercherdev.com
-sude service apache2 reload
+sudo service apache2 reload
 ```
 Add `127.0.0.1 local.mercherdev.com` to local hosts
 ```bash
