@@ -97,8 +97,8 @@ Paste config
     Allow from all
   </Proxy>
   ProxyPreserveHost on
-  ProxyPass /swagger http://localhost:3000/swagger
-  ProxyPass /api http://localhost:3000/api
+  ProxyPass /swagger http://staging.mercherdev.com/swagger
+  ProxyPass /api http://staging.mercherdev.com/api
   ProxyPass / http://localhost:9000/
 </VirtualHost>
 ```
