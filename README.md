@@ -76,6 +76,42 @@ rvm use 2.1
 gem install haml
 ```
 
+### Configure server
+Install Apache
+```bash
+sudo apt-get install apache2
+sudo a2enmod proxy
+sudo a2enmod proxy_http
+```
+Create config file
+```bash
+sudo nano /etc/apache2/sites-available/local.mercherdev.com.conf
+```
+Paste config
+```
+<VirtualHost *:80>
+  ServerName local.mercherdev.com
+  ProxyRequests Off
+  <Proxy *>
+    Order deny,allow
+    Allow from all
+  </Proxy>
+  ProxyPreserveHost on
+  ProxyPass /swagger http://localhost:3000/swagger
+  ProxyPass /api http://localhost:3000/api
+  ProxyPass / http://localhost:9000/
+</VirtualHost>
+```
+Enable site
+```bash
+sudo a2ensite local.mercherdev.com
+sude service apache2 reload
+```
+Add `127.0.0.1 local.mercherdev.com` to local hosts
+```bash
+sudo nano /etc/hosts
+```
+
 ### Clone repository
 Create working folders and clone project repository:
 ```bash
