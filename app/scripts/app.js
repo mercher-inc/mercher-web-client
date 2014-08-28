@@ -18,10 +18,7 @@ angular
         'ngTouch',
         'mc.module.facebook'
     ])
-    .config(['facebookProvider', function (facebookProvider) {
-        facebookProvider.configure({appId: '721263977929363'});
-    }])
-    .config(function ($locationProvider, $urlRouterProvider, $stateProvider) {
+    .config(function ($locationProvider, $urlRouterProvider, $stateProvider, facebookProvider) {
         $locationProvider
             .html5Mode(true)
             .hashPrefix('!');
@@ -37,8 +34,9 @@ angular
                 templateUrl: 'views/about.html',
                 controller:  'AboutCtrl'
             });
+        facebookProvider.configure({appId: '721263977929363'});
     })
-    .run(['$rootScope', 'socket', 'facebook', function ($rootScope, socket, facebook) {
+    .run(function ($rootScope, socket, facebook) {
         socket.emit('app_started', {});
 
         facebook
@@ -67,4 +65,4 @@ angular
                     });
             }
         });
-    }]);
+    });
