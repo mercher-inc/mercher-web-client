@@ -97,10 +97,10 @@ Paste config
     Allow from all
   </Proxy>
   ProxyPreserveHost on
-  ProxyPass /swagger http://staging.mercherdev.com/swagger
-  ProxyPass /api http://staging.mercherdev.com/api
+  ProxyPass /swagger   http://staging.mercherdev.com/swagger
+  ProxyPass /api       http://staging.mercherdev.com/api
   ProxyPass /socket.io http://staging.mercherdev.com/socket.io
-  ProxyPass / http://localhost:9000/
+  ProxyPass /          http://localhost:9000/
 </VirtualHost>
 ```
 Enable site
