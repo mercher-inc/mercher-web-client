@@ -38,10 +38,20 @@ angular
                 controller:  'AboutCtrl'
             });
     })
-    .run(function ($rootScope, socket, facebook) {
+    .run(['$rootScope', 'socket', 'facebook', function ($rootScope, socket, facebook) {
         socket.emit('app_started', {});
 
-        facebook.init();
+        facebook
+            .getLoginStatus()
+            .then(function (status) {
+                console.log(status);
+                if (status !== 'connected') {
+                    facebook
+                        .login({
+                            'scope': 'public_profile,email'
+                        });
+                }
+            });
 
         $rootScope.$on('fb.auth.statusChange', function (event, authResponse) {
             console.log(authResponse);
@@ -55,16 +65,6 @@ angular
                     function (error) {
                         window.alert(error.message);
                     });
-            } else {
-                facebook
-                    .login({
-                        'scope': 'public_profile,email'
-                    })
-                    .then(function (response) {
-                        console.log(response);
-                    }, function (error) {
-                        console.log(error);
-                    });
             }
         });
-    });
+    }]);

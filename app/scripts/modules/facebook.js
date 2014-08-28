@@ -100,30 +100,8 @@ angular.module('mc.module.facebook', [])
             };
 
             return  {
-                init:   init,
-                login:  function (options) {
-                    var deferred = $q.defer();
-                    init().then(function (FB) {
-                        FB.login(function (response) {
-                            if (response.authResponse) {
-                                deferred.resolve(response);
-                            } else {
-                                deferred.reject(response);
-                            }
-                        }, options);
-                    });
-                    return deferred.promise;
-                },
-                logout: function () {
-                    var deferred = $q.defer();
-                    init().then(function (FB) {
-                        FB.logout(function (response) {
-                            deferred.resolve(response);
-                        });
-                    });
-                    return deferred.promise;
-                },
-                api:    function (path, method, params) {
+                init:           init,
+                api:            function (path, method, params) {
                     var deferred = $q.defer();
                     init().then(function (FB) {
                         FB.api(path, method || 'get', params || {}, function (response) {
@@ -136,7 +114,7 @@ angular.module('mc.module.facebook', [])
                     });
                     return deferred.promise;
                 },
-                ui:     function (params) {
+                ui:             function (params) {
                     var deferred = $q.defer();
                     init().then(function (FB) {
                         FB.ui(params || {}, function (response) {
@@ -146,6 +124,55 @@ angular.module('mc.module.facebook', [])
                                 deferred.resolve(response);
                             }
                         });
+                    });
+                    return deferred.promise;
+                },
+                getLoginStatus: function () {
+                    var deferred = $q.defer();
+                    init().then(function (FB) {
+                        FB.getLoginStatus(function (response) {
+                            if (!response || response.error) {
+                                deferred.reject(response);
+                            } else {
+                                deferred.resolve(response.status);
+                            }
+                        });
+                    });
+                    return deferred.promise;
+                },
+                login:          function (options) {
+                    var deferred = $q.defer();
+                    init().then(function (FB) {
+                        FB.login(function (response) {
+                            if (response.authResponse) {
+                                deferred.resolve(response);
+                            } else {
+                                deferred.reject(response);
+                            }
+                        }, options);
+                    });
+                    return deferred.promise;
+                },
+                logout:         function () {
+                    var deferred = $q.defer();
+                    init().then(function (FB) {
+                        FB.logout(function (response) {
+                            deferred.resolve(response);
+                        });
+                    });
+                    return deferred.promise;
+                },
+                getAccessToken: function () {
+                    var deferred = $q.defer();
+                    init().then(function (FB) {
+                        deferred.resolve(FB.getAccessToken());
+                    });
+                    return deferred.promise;
+                },
+                getUserID:      function () {
+                    var deferred = $q.defer();
+                    init().then(function (FB) {
+                        deferred.resolve(FB.getUserID());
                     });
                     return deferred.promise;
                 }
