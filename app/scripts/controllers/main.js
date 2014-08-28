@@ -8,10 +8,11 @@
  * Controller of the mercherWebClientApp
  */
 angular.module('mercherWebClientApp')
-  .controller('MainCtrl', function ($scope) {
-    $scope.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
-  });
+    .controller('MainCtrl', function ($scope, facebook) {
+        $scope.login = function () {
+            facebook
+                .login({
+                    'scope': 'public_profile,email'
+                });
+        };
+    });
