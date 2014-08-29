@@ -10,6 +10,7 @@
  */
 angular
     .module('mercherWebClientApp', [
+        'config',
         'ngAnimate',
         'ngCookies',
         'ngResource',
@@ -18,7 +19,7 @@ angular
         'ngTouch',
         'mc.module.facebook'
     ])
-    .config(function ($locationProvider, $urlRouterProvider, $stateProvider, facebookProvider) {
+    .config(function ($locationProvider, $urlRouterProvider, $stateProvider, facebookProvider, facebookConfig) {
         $locationProvider
             .html5Mode(true)
             .hashPrefix('!');
@@ -34,7 +35,7 @@ angular
                 templateUrl: 'views/about.html',
                 controller:  'AboutCtrl'
             });
-        facebookProvider.configure({appId: '721263977929363'});
+        facebookProvider.configure(facebookConfig);
     })
     .run(function ($rootScope, socket, facebook) {
         socket.emit('app_started', {});

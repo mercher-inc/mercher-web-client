@@ -10,8 +10,6 @@ module.exports = function (grunt) {
 
     var modRewrite = require('connect-modrewrite');
 
-    console.log(process.env);
-
     // Configurable paths for the application
     var appConfig = {
         app:    'app',
@@ -30,10 +28,10 @@ module.exports = function (grunt) {
     grunt.initConfig({
 
         // Project settings
-        yeoman:        appConfig,
+        yeoman: appConfig,
 
         // Watches files for changes and runs tasks based on the changed files
-        watch:         {
+        watch:  {
             options:    {
                 livereload: true,
                 nospawn:    true
@@ -69,6 +67,24 @@ module.exports = function (grunt) {
                 files: [
                     '<%= yeoman.app %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}'
                 ]
+            }
+        },
+
+        ngconstant:    {
+            options: {
+                name:      'config',
+                dest:      '<%= yeoman.tmp %>/scripts/config.js',
+                constants: {
+                    facebookConfig: {
+                        appId:     process.env.FB_APP_ID || '721263977929363',
+                        namespace: process.env.FB_NAMESPACE || 'mercher_local'
+                    }
+                },
+                values:    {
+                    debug: true
+                }
+            },
+            dist:    {
             }
         },
 
@@ -360,17 +376,20 @@ module.exports = function (grunt) {
         concurrent: {
             server: [
                 'haml:dist',
-                'less:dist'
+                'less:dist',
+                'ngconstant:dist'
             ],
             test:   [
                 'haml:dist',
-                'less:dist'
+                'less:dist',
+                'ngconstant:dist'
             ],
             dist:   [
                 'haml:dist',
                 'less:dist',
                 'imagemin',
-                'svgmin'
+                'svgmin',
+                'ngconstant:dist'
             ]
         },
 
