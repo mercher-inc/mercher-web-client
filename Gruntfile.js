@@ -10,6 +10,8 @@ module.exports = function (grunt) {
 
     var modRewrite = require('connect-modrewrite');
 
+    console.log(process.env);
+
     // Configurable paths for the application
     var appConfig = {
         app:    'app',
