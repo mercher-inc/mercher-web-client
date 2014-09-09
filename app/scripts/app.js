@@ -37,18 +37,48 @@ angular
             });
         facebookProvider.configure(facebookConfig);
     })
-    .run(function ($rootScope, socket, facebook) {
+    .run(function ($rootScope, $log, socket, facebook) {
+        socket.on('connect', function(){
+            $log.info('Socket connection established');
+        });
+        socket.on('disconnect', function(){
+            $log.info('Disconnected from socket');
+        });
+        socket.on('connect_error', function(){
+            $log.error('An error occurred during connection to socket');
+        });
+        socket.on('connect_timeout', function(){
+            $log.error('Socket connection timeout');
+        });
+        socket.on('reconnect', function(attempt){
+            $log.info('Reconnected to socket on the %d attempt', attempt);
+        });
+        socket.on('reconnect_attempt', function(){
+            $log.info('Trying to reconnect to socket');
+        });
+        socket.on('reconnecting', function(attempt){
+            $log.info('%d attempt to connect to the socket', attempt);
+        });
+        socket.on('reconnect_error', function(){
+            $log.error('An error occurred during reconnection to socket');
+        });
+        socket.on('reconnect_failed', function(){
+            $log.error('Failed to reconnect to socket');
+        });
+
         socket.emit('app_started', {});
-        console.log('app_started', {});
 
         socket.on('user updated', function(data){
-            console.log('user updated', data);
+            $log.debug('user updated', data);
         });
         socket.on('shop updated', function(data){
-            console.log('shop updated', data);
+            $log.debug('shop updated', data);
         });
         socket.on('product updated', function(data){
-            console.log('product updated', data);
+            $log.debug('product updated', data);
+        });
+        socket.on('image crop progress changed', function(data){
+            $log.debug('image crop progress changed', data);
         });
 
         facebook.init();
