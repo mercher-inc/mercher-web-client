@@ -39,5 +39,17 @@ angular
     })
     .run(function ($rootScope, socket, facebook) {
         socket.emit('app_started', {});
+        console.log('app_started', {});
+
+        socket.on('user updated', function(data){
+            console.log('user updated', data);
+        });
+        socket.on('shop updated', function(data){
+            console.log('shop updated', data);
+        });
+        socket.on('product updated', function(data){
+            console.log('product updated', data);
+        });
+
         facebook.init();
     });
