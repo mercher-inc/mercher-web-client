@@ -36,7 +36,7 @@
         "grunt-ngmin":              "^0.0.3",
         "grunt-svgmin":             "^0.4.0",
         "grunt-usemin":             "^2.1.1",
-        "grunt-wiredep":            "^1.7.0",
+        "grunt-wiredep":            "^1.9.0",
         "ibrik":                    "~1.1.1",
         "jshint-stylish":           "^0.2.0",
         "karma":                    "^0.12.17",
