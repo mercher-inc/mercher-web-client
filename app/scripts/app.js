@@ -37,27 +37,35 @@ angular
             });
         facebookProvider.configure(facebookConfig);
     })
-    .run(function ($rootScope, $log, Auth, socket, facebook) {
+    .run(function ($rootScope, $http, $log, Auth, User, socket, facebook) {
 
-        socket.on('user updated', function(data){
+        socket.on('user updated', function (data) {
             $log.debug('user updated', data);
         });
-        socket.on('shop updated', function(data){
+        socket.on('shop updated', function (data) {
             $log.debug('shop updated', data);
         });
-        socket.on('product updated', function(data){
+        socket.on('product updated', function (data) {
             $log.debug('product updated', data);
         });
-        socket.on('image crop progress changed', function(data){
+        socket.on('image crop progress changed', function (data) {
             $log.debug('image crop progress changed', data);
         });
 
-        $rootScope.$on('fb.auth.authResponseChange', function(e, authResponse){
+        $rootScope.$on('fb.auth.authResponseChange', function (e, authResponse) {
             if (authResponse.status === 'connected') {
                 console.log(authResponse.authResponse.accessToken);
-                Auth.facebook({access_token: authResponse.authResponse.accessToken}, function(authResponse){
-                    console.log(authResponse, arguments);
-                });
+                Auth.facebook({access_token: authResponse.authResponse.accessToken})
+                    .$promise
+                    .then(function (authResponse) {
+                        $http.defaults.headers.common['X-Access-Token'] = authResponse.token;
+                        User.get({userId: 'me'})
+                            .$promise
+                            .then(function (user) {
+                                window.alert('Hello, ' + user.first_name);
+                                $rootScope.currentUser = user;
+                            });
+                    });
             }
         });
 
