@@ -37,7 +37,7 @@ angular
             });
         facebookProvider.configure(facebookConfig);
     })
-    .run(function ($rootScope, $http, $log, Auth, User, socket, facebook) {
+    .run(function ($rootScope, $log, AuthService, socket, facebook) {
 
         socket.on('user updated', function (data) {
             $log.debug('user updated', data);
@@ -52,20 +52,9 @@ angular
             $log.debug('image crop progress changed', data);
         });
 
-        $rootScope.$on('fb.auth.authResponseChange', function (e, authResponse) {
-            if (authResponse.status === 'connected') {
-                console.log(authResponse.authResponse.accessToken);
-                Auth.facebook({access_token: authResponse.authResponse.accessToken})
-                    .$promise
-                    .then(function (authResponse) {
-                        $http.defaults.headers.common['X-Access-Token'] = authResponse.token;
-                        User.get({userId: 'me'})
-                            .$promise
-                            .then(function (user) {
-                                window.alert('Hello, ' + user.first_name);
-                                $rootScope.currentUser = user;
-                            });
-                    });
+        $rootScope.$on('fb.auth.authResponseChange', function (e, r) {
+            if (r.status === 'connected') {
+                AuthService.loginThroughFacebook(r.authResponse.accessToken);
             }
         });
 

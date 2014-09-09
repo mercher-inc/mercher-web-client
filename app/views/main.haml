@@ -3,7 +3,8 @@
     %h1
       MERCHER
 
-%button{type: "button", ng: {click: "login()"}} FB Login
+%button{type: "button", ng: {click: "login()", if: "!currentUser"}} FB Login
+%span{ng: {if: "currentUser"}} Hello, {{ currentUser.first_name }} {{ currentUser.last_name }}!
 
 .categories-carousel
   .categories-carousel-item
