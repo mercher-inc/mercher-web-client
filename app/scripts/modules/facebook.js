@@ -5,8 +5,8 @@ angular.module('mc.module.facebook', [])
         var provider = this,
             params = {
                 appId:   null,
-                status:  true,
-                cookie:  true,
+                status:  false,
+                cookie:  false,
                 version: 'v2.1'
             };
 
