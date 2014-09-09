@@ -18,10 +18,4 @@ angular.module('mercherWebClientApp')
                     }
                 });
         };
-
-        $scope.$on('fb.auth.authResponseChange', function(e, authResponse){
-            if (authResponse.status === 'connected') {
-                console.log(authResponse.authResponse.accessToken);
-            }
-        });
     });
