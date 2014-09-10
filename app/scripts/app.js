@@ -25,15 +25,15 @@ angular
             .hashPrefix('!');
         $urlRouterProvider.otherwise('/');
         $stateProvider
-            .state('home', {
+            .state('marketing', {
                 url:         '/',
-                templateUrl: 'views/main.html',
-                controller:  'MainCtrl'
+                templateUrl: 'views/marketing.html',
+                controller:  'MarketingCtrl'
             })
-            .state('about', {
-                url:         '/about',
-                templateUrl: 'views/about.html',
-                controller:  'AboutCtrl'
+            .state('marketplace', {
+                url:         '/market',
+                templateUrl: 'views/marketplace.html',
+                controller:  'MarketplaceCtrl'
             });
         facebookProvider.configure(facebookConfig);
     })

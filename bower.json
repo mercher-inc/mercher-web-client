@@ -24,7 +24,7 @@
         "angular-sanitize":  "1.2.20",
         "angular-animate":   "1.2.20",
         "angular-touch":     "1.2.20",
-        "angular-ui-router": "^0.2.10",
+        "angular-ui-router": "^0.2.11",
         "socket.io-client":  "Automattic/socket.io-client#~1.0.6"
     },
     "devDependencies": {

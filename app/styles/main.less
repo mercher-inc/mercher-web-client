@@ -1,81 +1,59 @@
 @import "/bower_components/bootstrap/less/bootstrap";
 @import url(http://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900,900italic);
-
 @import "variables";
 @import "mixins";
 
-.header {
-  margin: 50px 0 25px;
+mc-page {
   position: fixed;
   top: 0;
-  left: 0;
   right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: @brand-primary;
 
-  .logo {
-    background-image: url('/images/logo.svg');
-    background-position: top center;
+  mc-page-tabs {
+    background: url(http://local.mercherdev.com/uploads/0e1181b3e6bd450544d54d844240860ce6eab3e3/12794b90c2cff85bfabb29d6bfc0a00e.jpg);
+    background-size: cover;
     background-repeat: no-repeat;
-    background-size: 150px;
-    width: 150px;
-    height: 150px;
-    padding-top: 100px;
-    margin: 0 auto;
 
-    h1 {
-      font-size: 30px;
-      font-weight: 300;
-      color: #3DA3A7;
+    .tabs {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 0 0 70px 0;
+      overflow: hidden;
+    }
+    .buttons {
+      position: absolute;
+      height: 70px;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      overflow: hidden;
       text-align: center;
-      line-height: 50px;
-      letter-spacing: 1.5px;
+      padding: 10px 0;
       margin: 0;
-    }
-  }
-}
 
-.categories-carousel {
-  display: flex;
-  height: 200px;
-  margin-top: 300px;
+      li {
+        display: inline-block;
+        margin: 0 10px;
 
-  .categories-carousel-item {
-    flex-grow: 1;
-    flex-shrink: 0;
-    padding: 0 100px;
-    width: 1200px;
+        a {
+          img {
+            height: 25px;
+            width: 25px;
+          }
+        }
 
-    .carousel-item-description {
-      width: 200px;
-      text-align: right;
-      float: left;
-      margin-right: 25px;
-      padding-right: 25px;
-      color: @brand-primary;
-      border-right: 1px solid @brand-primary;
-
-      h2 {
-        margin-top: 0;
-      }
-    }
-
-    .carousel-item-elements {
-      display: flex;
-      flex-direction: column;
-      flex-wrap: wrap;
-      height: 500px;
-      justify-content: flex-start;
-      align-items: flex-start;
-      align-content: flex-start;
-
-      .card {
-        height: 200px;
-        flex-shrink: 0;
-        flex-grow: 0;
-        margin-bottom: 25px;
-
-        img {
-          height: 200px;
-          width: 200px;
+        &.active {
+          a {
+            img {
+              height: 50px;
+              width: 50px;
+            }
+          }
         }
       }
     }
