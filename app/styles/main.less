@@ -3,18 +3,61 @@
 @import "variables";
 @import "mixins";
 
+body {
+  background: @brand-primary;
+}
+
 mc-page {
   position: fixed;
   top: 0;
   right: 0;
   bottom: 0;
   left: 0;
-  background-color: @brand-primary;
+
+  & > nav {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    height: 48px;
+    line-height: 24px;
+    color: white;
+    z-index: 100;
+    display: block;
+    background: fadeout(black, 90%);
+
+    .logo {
+      background-image: url('/images/logo.svg');
+      background-size: 48px;
+      background-repeat: no-repeat;
+      background-position: center;
+      display: inline-block;
+      height: 48px;
+      width: 64px;
+      margin: 0;
+      padding: 0;
+      vertical-align: top;
+    }
+
+    button {
+      background: none;
+      border: none;
+      outline: none;
+      height: 48px;
+      line-height: 24px;
+      padding: 12px;
+      color: white;
+    }
+
+    span {
+      height: 48px;
+      line-height: 24px;
+      padding: 12px;
+      color: white;
+    }
+  }
 
   mc-page-tabs {
-    background: url(http://local.mercherdev.com/uploads/0e1181b3e6bd450544d54d844240860ce6eab3e3/12794b90c2cff85bfabb29d6bfc0a00e.jpg);
-    background-size: cover;
-    background-repeat: no-repeat;
 
     .tabs {
       position: absolute;
