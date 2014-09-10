@@ -2,4 +2,4 @@
 %ul.buttons
   %li{ng: {repeat: "pane in panes", class: "{active:pane.selected}"}}
     %a{href: "", ng: {click: "select(pane)"}}
-      %img{src: "/uploads/{{ pane.tabImage.key }}/{{ pane.tabImage.files.xs.mdpi.file }}"}
+      %img{mc: {image: true}, image: "pane.tabImage", size: "xs"}
