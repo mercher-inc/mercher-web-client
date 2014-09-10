@@ -27,7 +27,7 @@ mc-page {
     background: fadeout(black, 90%);
 
     .logo {
-      background-image: url('/images/logo.svg');
+      background-image: url('/images/logo48.png');
       background-size: 48px;
       background-repeat: no-repeat;
       background-position: center;
@@ -37,6 +37,26 @@ mc-page {
       margin: 0;
       padding: 0;
       vertical-align: top;
+
+      @media screen and (-webkit-max-device-pixel-ratio: 4.0) {
+        background-image: url('/images/logo192.png');
+      }
+
+      @media screen and (-webkit-max-device-pixel-ratio: 3.0) {
+        background-image: url('/images/logo144.png');
+      }
+
+      @media screen and (-webkit-max-device-pixel-ratio: 2.0) {
+        background-image: url('/images/logo96.png');
+      }
+
+      @media screen and (-webkit-max-device-pixel-ratio: 1.5) {
+        background-image: url('/images/logo72.png');
+      }
+
+      @media screen and (-webkit-max-device-pixel-ratio: 1.0) {
+        background-image: url('/images/logo48.png');
+      }
     }
 
     button {
