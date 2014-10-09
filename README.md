@@ -70,8 +70,7 @@ npm install -g phantomjs
 sudo apt-get install curl
 \curl -sSL https://get.rvm.io | bash -s stable
 rvm install 2.1
-/bin/bash --login
-rvm use 2.1
+rvm use --default 2.1
 gem install haml
 ```
 
