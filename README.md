@@ -69,7 +69,7 @@ npm install -g phantomjs
 ### Install Ruby
 ```bash
 sudo apt-get install curl
-\curl -sSL https://get.rvm.io | bash
+\curl -sSL https://get.rvm.io | bash -s stable
 rvm install 2.1
 /bin/bash --login
 rvm use 2.1
