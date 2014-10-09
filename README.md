@@ -43,11 +43,10 @@ and then go through [this manual](https://help.github.com/articles/set-up-git#se
 cd ~
 sudo apt-get update
 sudo apt-get install build-essential libssl-dev
-wget -qO- https://raw.githubusercontent.com/creationix/nvm/v0.13.1/install.sh | bash
-source ~/.profile
-nvm ls-remote
-nvm install v0.10.30
-nvm use v0.10.30
+wget -qO- https://raw.githubusercontent.com/creationix/nvm/v0.17.2/install.sh | bash
+nvm install 0.10.26
+nvm use 0.10
+nvm alias default 0.10
 node -v
 ```
 
