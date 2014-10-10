@@ -15,6 +15,7 @@
     },
     "dependencies":    {
         "angular":           "1.2.20",
+        "less":              "^1.7.5",
         "underscore":        "~1.6.0",
         "json3":             "~3.3.1",
         "es5-shim":          "~3.1.0",

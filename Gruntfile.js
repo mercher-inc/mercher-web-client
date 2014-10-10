@@ -126,7 +126,7 @@ module.exports = function (grunt) {
                     open:       true,
                     middleware: function (connect) {
                         return [
-                            modRewrite(['!\\.html|\\.js|\\.svg|\\.css|\\.png$ /index.html [L]']),
+                            modRewrite(['!\\.html|\\.js|\\.svg|\\.css|\\.less|\\.png$ /index.html [L]']),
                             connect.static(appConfig.tmp),
                             connect().use(
                                 '/fonts',
@@ -348,7 +348,8 @@ module.exports = function (grunt) {
                             '*.{ico,png,txt}',
                             '.htaccess',
                             'images/{,*/}*.{webp}',
-                            'fonts/*'
+                            'fonts/*',
+                            'styles/colorize.less'
                         ]
                     },
                     {

@@ -10,6 +10,12 @@
       {{ product.title }}
     %p.description
       {{ product.description }}
+      %br/
+      %a{ui: {sref: "product({productId:1})"}}
+        First product
+      %br/
+      %a{ui: {sref: "product({productId:2})"}}
+        Second product
   .mc-block.product-reviews.quadratic
     %h1.title Reviews
     %hr/
