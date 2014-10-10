@@ -1,8 +1,10 @@
 .mc-page.internal
   %a.back-button{ui: {sref: "marketplace"}}
+    %svg.icon{:width => "48px", :height => "48px"}
+      %polyline.mainStroke{:stroke => "#666", "stroke-width" => "4", :fill => "none", :points => "32,8 16,24 32,40"}
   .mc-block.product-images.quadratic
     .image{ng: {repeat: "productImage in productImages"}}
-      %img{src: "/uploads/{{ productImage.image.key }}/{{ productImage.image.files.xl.mdpi.file }}", height:"100%"}
+      %img{mc: {image: "productImage.image"}, size: "xl", height:"100%"}
   .mc-block.product-details.rectangular
     %h1.title
       {{ product.title }}
