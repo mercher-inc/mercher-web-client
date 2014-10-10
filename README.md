@@ -86,7 +86,7 @@ Create config file
 sudo nano /etc/apache2/sites-available/local.mercherdev.com.conf
 ```
 Paste config
-```
+```apache
 <VirtualHost *:80>
   ServerName local.mercherdev.com
   ProxyRequests Off
@@ -98,6 +98,7 @@ Paste config
   ProxyPass /swagger   http://staging.mercherdev.com/swagger
   ProxyPass /api       http://staging.mercherdev.com/api
   ProxyPass /socket.io http://staging.mercherdev.com/socket.io
+  ProxyPass /uploads   http://staging.mercherdev.com/uploads
   ProxyPass /          http://localhost:9000/
 </VirtualHost>
 ```
