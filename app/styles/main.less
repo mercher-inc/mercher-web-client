@@ -127,9 +127,15 @@ mc-page {
   }
 }
 
+@mc-big-padding: 30px;
+@mc-small-padding: 20px;
+@mc-header-size: 60px;
+@mc-huge-padding: @mc-header-size + @mc-small-padding;
+
 // Page
 .mc-page {
   display: flex;
+  height: 900px;
 
   // Block
   .mc-block {
@@ -144,6 +150,7 @@ mc-page {
     // Rectangular block
     &.rectangular {
       width: 450px;
+      min-width: 300px;
     }
   }
 
@@ -152,29 +159,28 @@ mc-page {
 
     .back-button {
       display: block;
-      height: 60px;
-      width: 60px;
+      height: @mc-header-size;
+      width: @mc-header-size;
       position: fixed;
-      top: 30px;
+      top: @mc-big-padding;
       background-color: #888;
       background-color: rgba(255, 255, 255, 0.5);
       background-image: url('/images/back.svg');
       background-position: center;
       background-repeat: no-repeat;
       background-size: 48px;
-
       text-decoration: none;
     }
 
     .product-details {
-      padding: 30px 80px;
+      padding: @mc-big-padding @mc-huge-padding;
       max-width: 450px;
       color: white;
       background: @brand-primary;
 
       .title {
-        margin: -30px -80px 20px -80px;
-        padding: 30px 80px 20px 80px;
+        margin: -@mc-big-padding -@mc-huge-padding @mc-small-padding -@mc-huge-padding;
+        padding: @mc-big-padding @mc-huge-padding @mc-small-padding @mc-huge-padding;
         line-height: 20px;
         font-size: 18px;
         text-transform: uppercase;
@@ -184,6 +190,35 @@ mc-page {
       }
     }
 
+    .product-reviews {
+
+    }
+
+  }
+}
+
+@mc-big-padding-sm: 20px;
+@mc-small-padding-sm: 10px;
+@mc-header-size-sm: 40px;
+@mc-huge-padding-sm: @mc-header-size-sm + @mc-small-padding-sm;
+
+@media (max-height: 800px) {
+  .mc-page {
+    &.internal {
+      .back-button {
+        height: @mc-header-size-sm;
+        width: @mc-header-size-sm;
+        top: @mc-big-padding-sm;
+        background-size: 32px;
+      }
+      .product-details {
+        padding: @mc-big-padding-sm @mc-huge-padding-sm;
+        .title {
+          margin: -@mc-big-padding-sm -@mc-huge-padding-sm @mc-small-padding-sm -@mc-huge-padding-sm;
+          padding: @mc-big-padding-sm @mc-huge-padding-sm @mc-small-padding-sm @mc-huge-padding-sm;
+        }
+      }
+    }
   }
 }
 
