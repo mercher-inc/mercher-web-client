@@ -4,7 +4,11 @@
 @import "mixins";
 
 body {
-  background: @brand-primary;
+  background: #eee;
+}
+
+html, body {
+  height: 100%;
 }
 
 mc-page {
@@ -122,3 +126,64 @@ mc-page {
     }
   }
 }
+
+// Page
+.mc-page {
+  display: flex;
+
+  // Block
+  .mc-block {
+    height: 900px;
+    overflow: hidden;
+
+    // Quadratic block
+    &.quadratic {
+      width: 900px;
+    }
+
+    // Rectangular block
+    &.rectangular {
+      width: 450px;
+    }
+  }
+
+  // Internal page
+  &.internal {
+
+    .back-button {
+      display: block;
+      height: 60px;
+      width: 60px;
+      position: fixed;
+      top: 30px;
+      background-color: #888;
+      background-color: rgba(255, 255, 255, 0.5);
+      background-image: url('/images/back.svg');
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: 48px;
+
+      text-decoration: none;
+    }
+
+    .product-details {
+      padding: 30px 80px;
+      max-width: 450px;
+      color: white;
+      background: @brand-primary;
+
+      .title {
+        margin: -30px -80px 20px -80px;
+        padding: 30px 80px 20px 80px;
+        line-height: 20px;
+        font-size: 18px;
+        text-transform: uppercase;
+        font-weight: 300;
+        background: @brand-primary;
+        background: fadeout(@brand-primary, 50%);
+      }
+    }
+
+  }
+}
+

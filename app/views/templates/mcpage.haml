@@ -1,6 +1,0 @@
-%nav
-  .logo
-  %button{type: "button", ng: {click: "login()", if: "!currentUser"}, style: "float: right;"} FB Login
-  %span{ng: {if: "currentUser"}, style: "float: right;"} Hello, {{ currentUser.firstName }} {{ currentUser.lastName }}!
-
-%section{ng: {transclude: true}}

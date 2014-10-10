@@ -25,16 +25,37 @@ angular
             .hashPrefix('!');
         $urlRouterProvider.otherwise('/');
         $stateProvider
+
+            ///////////////
+            // Marketing //
+            ///////////////
+
             .state('marketing', {
                 url:         '/',
                 templateUrl: 'views/marketing.html',
                 controller:  'MarketingCtrl'
             })
+
+            /////////////////
+            // Marketplace //
+            /////////////////
+
             .state('marketplace', {
-                url:         '/market',
+                url:         '/marketplace',
                 templateUrl: 'views/marketplace.html',
                 controller:  'MarketplaceCtrl'
+            })
+
+            /////////////////
+            // Marketplace //
+            /////////////////
+
+            .state('product', {
+                url:         '/products/:productId',
+                templateUrl: 'views/product.html',
+                controller:  'ProductCtrl'
             });
+
         facebookProvider.configure(facebookConfig);
     })
     .run(function ($rootScope, $log, AuthService, socket, facebook) {

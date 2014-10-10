@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('mercherWebClientApp')
-    .directive('mcPage', function () {
+    .directive('mcBlock', function () {
         return {
             restrict: 'C'
         };
