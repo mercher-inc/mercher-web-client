@@ -11,31 +11,31 @@ angular.module('mercherWebClientApp')
     .factory('socket', function ($rootScope, $log) {
         var socket = window.io.connect('/');
 
-        socket.on('connect', function(){
+        socket.on('connect', function () {
             $log.info('Socket connection established');
         });
-        socket.on('disconnect', function(){
+        socket.on('disconnect', function () {
             $log.info('Disconnected from socket');
         });
-        socket.on('connect_error', function(){
+        socket.on('connect_error', function () {
             $log.error('An error occurred during connection to socket');
         });
-        socket.on('connect_timeout', function(){
+        socket.on('connect_timeout', function () {
             $log.error('Socket connection timeout');
         });
-        socket.on('reconnect', function(attempt){
+        socket.on('reconnect', function (attempt) {
             $log.info('Reconnected to socket on the %d attempt', attempt);
         });
-        socket.on('reconnect_attempt', function(){
+        socket.on('reconnect_attempt', function () {
             $log.info('Trying to reconnect to socket');
         });
-        socket.on('reconnecting', function(attempt){
+        socket.on('reconnecting', function (attempt) {
             $log.info('%d attempt to connect to the socket', attempt);
         });
-        socket.on('reconnect_error', function(){
+        socket.on('reconnect_error', function () {
             $log.error('An error occurred during reconnection to socket');
         });
-        socket.on('reconnect_failed', function(){
+        socket.on('reconnect_failed', function () {
             $log.error('Failed to reconnect to socket');
         });
 

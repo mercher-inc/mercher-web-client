@@ -3,10 +3,10 @@
 angular.module('mercherWebClientApp')
     .directive('mcPage', function ($window) {
         return {
-            restrict: 'C',
-            link: function(scope, element) {
+            restrict:   'C',
+            link:       function (scope, element) {
                 var window = angular.element($window);
-                var updateHeight = function(){
+                var updateHeight = function () {
                     element.css({
                         height: window.innerHeight()
                     });
@@ -14,8 +14,7 @@ angular.module('mercherWebClientApp')
                 updateHeight();
                 window.bind('resize', updateHeight);
             },
-            controller: function($scope){
-
+            controller: function () {
             }
         };
     });

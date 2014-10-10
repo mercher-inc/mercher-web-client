@@ -1,14 +1,18 @@
 'use strict';
 
 angular.module('mercherWebClientApp')
-    .controller('ProductCtrl', function ($scope) {
-        $scope.awesomeThings = [
-            'HTML5 Boilerplate',
-            'AngularJS',
-            'Karma'
-        ];
+    .controller('ProductCtrl', function ($scope, $stateParams, ProductResource, ProductImageResource) {
+        $scope.product = null;
+        $scope.productImages = [];
 
-        $scope.back = function(){
-            console.log(1);
-        };
+        ProductResource.get({productId: $stateParams.productId})
+            .$promise.then(function (product) {
+                $scope.product = product;
+
+                ProductImageResource.get({productId: $stateParams.productId})
+                    .$promise.then(function (productImages) {
+                        $scope.productImages = productImages.productImages;
+                    });
+            });
     });
+

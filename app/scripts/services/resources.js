@@ -77,7 +77,7 @@ angular.module('mercherWebClientApp')
             '/api/v1/products',
             null,
             {
-                'query': {
+                'query':            {
                     method:       'GET',
                     responseType: 'json'
                 },
@@ -87,13 +87,13 @@ angular.module('mercherWebClientApp')
                     params:       {categoryId: '@categoryId'},
                     responseType: 'json'
                 },
-                'get':   {
+                'get':              {
                     method:       'GET',
                     url:          '/api/v1/products/:productId',
                     params:       {productId: '@productId'},
                     responseType: 'json'
                 },
-                'save':  {
+                'save':             {
                     method:       'PUT',
                     url:          '/api/v1/products/:productId',
                     params:       {productId: '@productId'},
@@ -112,13 +112,13 @@ angular.module('mercherWebClientApp')
                     params:       {productId: '@productId'},
                     responseType: 'json'
                 },
-                'get':   {
+                'get':             {
                     method:       'GET',
                     url:          '/api/v1/product_images/:productImageId',
                     params:       {productImageId: '@productImageId'},
                     responseType: 'json'
                 },
-                'save':  {
+                'save':            {
                     method:       'PUT',
                     url:          '/api/v1/product_images/:productImageId',
                     params:       {productImageId: '@productImageId'},
