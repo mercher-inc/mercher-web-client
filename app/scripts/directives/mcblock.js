@@ -3,12 +3,11 @@
 angular.module('mercherWebClientApp')
     .directive('mcBlock', function ($window) {
         return {
-            require: '^mcPage',
-            restrict: 'C',
-            link: function(scope, element, attr) {
+            require:    '^mcPage',
+            restrict:   'C',
+            link:       function (scope, element) {
                 var window = angular.element($window);
-                var type = null;
-                var updateDimentions = function(){
+                var updateDimentions = function () {
                     element.css({
                         height: window.innerHeight()
                     });
@@ -25,8 +24,7 @@ angular.module('mercherWebClientApp')
                 updateDimentions();
                 window.bind('resize', updateDimentions);
             },
-            controller: function($scope){
-
+            controller: function () {
             }
         };
     });

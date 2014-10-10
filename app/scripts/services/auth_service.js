@@ -3,7 +3,7 @@
 angular.module('mercherWebClientApp')
     .factory('AuthService', ['$rootScope', '$http', 'Auth', 'User', function ($rootScope, $http, Auth, User) {
         return {
-            loginThroughFacebook: function(fbAccessToken){
+            loginThroughFacebook: function (fbAccessToken) {
                 Auth.facebook({fbAccessToken: fbAccessToken})
                     .$promise
                     .then(function (authResponse) {
