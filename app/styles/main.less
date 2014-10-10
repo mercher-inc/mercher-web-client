@@ -132,24 +132,35 @@ mc-page {
 @mc-header-size: 60px;
 @mc-huge-padding: @mc-header-size + @mc-small-padding;
 
+hr {
+  border-top-color: #ddd;
+}
 // Page
 .mc-page {
   display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: stretch;
   height: 900px;
 
   // Block
   .mc-block {
+    flex-grow: 0;
+    flex-shrink: 0;
+    flex-basis: auto;
+
     height: 900px;
     overflow: hidden;
 
     // Quadratic block
     &.quadratic {
-      width: 900px;
+      flex-basis: 2;
     }
 
     // Rectangular block
     &.rectangular {
-      width: 450px;
+      flex-basis: 1;
       min-width: 300px;
     }
   }
@@ -172,53 +183,79 @@ mc-page {
       text-decoration: none;
     }
 
-    .product-details {
-      padding: @mc-big-padding @mc-huge-padding;
-      max-width: 450px;
-      color: white;
-      background: @brand-primary;
-
-      .title {
-        margin: -@mc-big-padding -@mc-huge-padding @mc-small-padding -@mc-huge-padding;
-        padding: @mc-big-padding @mc-huge-padding @mc-small-padding @mc-huge-padding;
-        line-height: 20px;
-        font-size: 18px;
-        text-transform: uppercase;
-        font-weight: 300;
-        background: @brand-primary;
-        background: fadeout(@brand-primary, 50%);
-      }
-    }
-
-    .product-reviews {
-
-    }
-
   }
 }
 
-@mc-big-padding-sm: 20px;
-@mc-small-padding-sm: 10px;
-@mc-header-size-sm: 40px;
-@mc-huge-padding-sm: @mc-header-size-sm + @mc-small-padding-sm;
+.mc-block {
+  padding: @mc-big-padding @mc-huge-padding;
 
-@media (max-height: 800px) {
-  .mc-page {
-    &.internal {
-      .back-button {
-        height: @mc-header-size-sm;
-        width: @mc-header-size-sm;
-        top: @mc-big-padding-sm;
-        background-size: 32px;
-      }
-      .product-details {
-        padding: @mc-big-padding-sm @mc-huge-padding-sm;
-        .title {
-          margin: -@mc-big-padding-sm -@mc-huge-padding-sm @mc-small-padding-sm -@mc-huge-padding-sm;
-          padding: @mc-big-padding-sm @mc-huge-padding-sm @mc-small-padding-sm @mc-huge-padding-sm;
+  .title {
+    margin: 0;
+    padding: 0;
+    line-height: @mc-header-size;
+    font-size: 40px;
+    color: @brand-primary;
+  }
+
+  &.product-images {
+    padding: 0;
+    background: @brand-primary;
+  }
+
+  &.product-details {
+    max-width: 450px;
+    color: white;
+    background: @brand-primary;
+
+    .title {
+      color: white;
+      margin: -@mc-big-padding -@mc-huge-padding @mc-small-padding -@mc-huge-padding;
+      padding: @mc-big-padding @mc-huge-padding @mc-small-padding @mc-huge-padding;
+      line-height: 20px;
+      font-size: 18px;
+      text-transform: uppercase;
+      font-weight: 300;
+      background: @brand-primary;
+      background: fadeout(@brand-primary, 50%);
+    }
+  }
+
+  &.product-reviews {
+    flex-grow: 1;
+    .review {
+      display: table-row;
+      .avatar {
+        display: table-cell;
+        img {
+          height: 70px;
+          width: 70px;
+          margin: -5px 15px -5px -5px;
+          border-radius: 100%;
+          border: 2px solid #ddd;
+          vertical-align: text-top;
         }
       }
+      .description {
+        display: table-cell;
+        .name {
+          margin: 0 0 10px 0;
+          color: @brand-primary;
+          font-size: 16px;
+          font-weight: normal;
+        }
+      }
+      .rating {
+        display: table-cell;
+      }
+    }
+  }
+
+  &.product-other {
+    flex-grow: 1;
+    background: @brand-primary;
+    color: white;
+    .title {
+      color: white;
     }
   }
 }
-
