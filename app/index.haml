@@ -1,6 +1,7 @@
 !!!
 %html.no-js
   %head
+    %base{href: "/"}/
     %meta{charset: "utf-8"}/
     %meta{"http-equiv" => "X-UA-Compatible", content: "IE=edge"}/
     %meta{name: "viewport", content: "width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no"}/
@@ -32,16 +33,16 @@
     / endbuild
 
     / build:js({.tmp,app}) /scripts/scripts.js
-    %script{src: "scripts/config.js"}
+    %script{src: "/scripts/config.js"}
     %script{src: "/scripts/app.js"}
-    %script{src: "scripts/controllers/marketing.js"}
-    %script{src: "scripts/controllers/marketplace.js"}
-    %script{src: "scripts/directives/mcpage.js"}
-    %script{src: "scripts/directives/mcpagetabs.js"}
-    %script{src: "scripts/directives/mcpagepane.js"}
-    %script{src: "scripts/directives/mcimage.js"}
-    %script{src: "scripts/services/resources.js"}
-    %script{src: "scripts/services/socket.js"}
-    %script{src: "scripts/services/auth_service.js"}
-    %script{src: "scripts/modules/facebook.js"}
+    %script{src: "/scripts/controllers/marketing.js"}
+    %script{src: "/scripts/controllers/marketplace.js"}
+    %script{src: "/scripts/controllers/product.js"}
+    %script{src: "/scripts/directives/mcpage.js"}
+    %script{src: "/scripts/directives/mcblock.js"}
+    %script{src: "/scripts/directives/mcimage.js"}
+    %script{src: "/scripts/services/resources.js"}
+    %script{src: "/scripts/services/socket.js"}
+    %script{src: "/scripts/services/auth_service.js"}
+    %script{src: "/scripts/modules/facebook.js"}
     / endbuild

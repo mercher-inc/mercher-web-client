@@ -4,7 +4,11 @@
 @import "mixins";
 
 body {
-  background: @brand-primary;
+  background: #eee;
+}
+
+html, body {
+  height: 100%;
 }
 
 mc-page {
@@ -119,6 +123,139 @@ mc-page {
           }
         }
       }
+    }
+  }
+}
+
+@mc-big-padding: 30px;
+@mc-small-padding: 20px;
+@mc-header-size: 60px;
+@mc-huge-padding: @mc-header-size + @mc-small-padding;
+
+hr {
+  border-top-color: #ddd;
+}
+// Page
+.mc-page {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: stretch;
+  height: 900px;
+
+  // Block
+  .mc-block {
+    flex-grow: 0;
+    flex-shrink: 0;
+    flex-basis: auto;
+
+    height: 900px;
+    overflow: hidden;
+
+    // Quadratic block
+    &.quadratic {
+      flex-basis: 2;
+    }
+
+    // Rectangular block
+    &.rectangular {
+      flex-basis: 1;
+      min-width: 300px;
+    }
+  }
+
+  // Internal page
+  &.internal {
+
+    .back-button {
+      display: block;
+      height: @mc-header-size;
+      width: @mc-header-size;
+      position: fixed;
+      top: @mc-big-padding;
+      background-color: #888;
+      background-color: rgba(255, 255, 255, 0.5);
+      background-image: url('/images/back.svg');
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: 48px;
+      text-decoration: none;
+    }
+
+  }
+}
+
+.mc-block {
+  padding: @mc-big-padding @mc-huge-padding;
+
+  .title {
+    margin: 0;
+    padding: 0;
+    line-height: @mc-header-size;
+    font-size: 40px;
+    color: @brand-primary;
+  }
+
+  &.product-images {
+    padding: 0;
+    background: @brand-primary;
+  }
+
+  &.product-details {
+    max-width: 450px;
+    color: white;
+    background: @brand-primary;
+
+    .title {
+      color: white;
+      margin: -@mc-big-padding -@mc-huge-padding @mc-small-padding -@mc-huge-padding;
+      padding: @mc-big-padding @mc-huge-padding @mc-small-padding @mc-huge-padding;
+      line-height: 20px;
+      font-size: 18px;
+      text-transform: uppercase;
+      font-weight: 300;
+      background: @brand-primary;
+      background: fadeout(@brand-primary, 50%);
+    }
+  }
+
+  &.product-reviews {
+    flex-grow: 1;
+    .review {
+      display: table-row;
+      .avatar {
+        display: table-cell;
+        img {
+          height: 70px;
+          width: 70px;
+          margin: -5px 15px -5px -5px;
+          border-radius: 100%;
+          border: 2px solid #ddd;
+          vertical-align: text-top;
+        }
+      }
+      .description {
+        display: table-cell;
+        .name {
+          margin: 0 0 10px 0;
+          color: @brand-primary;
+          font-size: 16px;
+          font-weight: normal;
+        }
+      }
+      .rating {
+        display: table-cell;
+      }
+    }
+  }
+
+  &.product-other {
+    flex-grow: 1;
+    background: @brand-primary;
+    color: white;
+    .title {
+      color: white;
     }
   }
 }

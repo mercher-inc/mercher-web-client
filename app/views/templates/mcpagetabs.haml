@@ -1,5 +1,0 @@
-.tabs{ng: {transclude: true}}
-%ul.buttons
-  %li{ng: {repeat: "pane in panes", class: "{active:pane.selected}"}}
-    %a{href: "", ng: {click: "select(pane)"}}
-      %img{mc: {image: "pane.tabImage"}, size: "xs"}
