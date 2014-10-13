@@ -126,7 +126,7 @@ module.exports = function (grunt) {
                     open:       true,
                     middleware: function (connect) {
                         return [
-                            modRewrite(['!\\.html|\\.js|\\.svg|\\.css|\\.less|\\.png$ /index.html [L]']),
+                            modRewrite(['!\\.html|\\.js|\\.svg|\\.css|\\.less|\\.png|\\.ico|\\.woff|\\.ttf|\\.eot$ /index.html [L]']),
                             connect.static(appConfig.tmp),
                             connect().use(
                                 '/fonts',

@@ -19,7 +19,7 @@
 
   %body{ng: {app: "mercherWebClientApp"}}
     #fb-root
-    .ui-view
+    %div{ui: {view: true}}
 
     /[if lt IE 9]
       / build:js(.) /scripts/vendor_lt_ie9.js
@@ -38,10 +38,14 @@
     %script{src: "/scripts/app.js"}
     %script{src: "/scripts/controllers/marketing.js"}
     %script{src: "/scripts/controllers/marketplace.js"}
-    %script{src: "/scripts/controllers/product.js"}
+    %script{src: "/scripts/controllers/product/images.js"}
+    %script{src: "/scripts/controllers/product/details.js"}
+    %script{src: "/scripts/controllers/product/reviews.js"}
+    %script{src: "/scripts/controllers/product/other.js"}
     %script{src: "/scripts/directives/mcpage.js"}
     %script{src: "/scripts/directives/mcblock.js"}
     %script{src: "/scripts/directives/mcimage.js"}
+    %script{src: "/scripts/directives/mcrating.js"}
     %script{src: "/scripts/services/resources.js"}
     %script{src: "/scripts/services/socket.js"}
     %script{src: "/scripts/services/auth_service.js"}

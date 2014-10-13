@@ -51,9 +51,28 @@ angular
             /////////////////
 
             .state('product', {
-                url:         '/products/:productId',
-                templateUrl: 'views/product.html',
-                controller:  'ProductCtrl'
+                url:   '/products/:productId',
+                views: {
+                    '': {
+                        templateUrl: 'views/product.html'
+                    },
+                    'images@product': {
+                        templateUrl: 'views/product/images.html',
+                        controller:  'ProductImagesCtrl'
+                    },
+                    'details@product': {
+                        templateUrl: 'views/product/details.html',
+                        controller:  'ProductDetailsCtrl'
+                    },
+                    'reviews@product': {
+                        templateUrl: 'views/product/reviews.html',
+                        controller:  'ProductReviewsCtrl'
+                    },
+                    'other@product': {
+                        templateUrl: 'views/product/other.html',
+                        controller:  'ProductOtherCtrl'
+                    }
+                }
             });
 
         facebookProvider.configure(facebookConfig);
