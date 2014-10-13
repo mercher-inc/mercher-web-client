@@ -208,6 +208,12 @@ hr {
     .image {
       height: 100%;
     }
+
+    .switcher {
+      position: absolute;
+      top: 50%;
+      left: 14px;
+    }
   }
 
   &.product-details {
@@ -308,6 +314,29 @@ hr {
 
     &.active {
       color: #ffffff;
+    }
+  }
+}
+
+.mc-radio {
+  cursor: pointer;
+
+  svg {
+    circle.inner {
+      -webkit-transition: all .5s;
+      -moz-transition: all .5s;
+      -ms-transition: all .5s;
+      -o-transition: all .5s;
+      transition: all .5s;
+      opacity: 0;
+    }
+  }
+
+  &.active {
+    svg {
+      circle.inner {
+        opacity: 1;
+      }
     }
   }
 }
