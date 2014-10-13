@@ -169,17 +169,22 @@ hr {
   // Internal page
   &.internal {
 
-    .back-button {
+    .mc-back {
       display: block;
       height: @mc-header-size;
       width: @mc-header-size;
       position: fixed;
       top: @mc-big-padding;
       background: rgba(255, 255, 255, 0.5);
+      .transition(background .5s);
       text-decoration: none;
 
-      .icon {
+      svg {
         margin: 6px;
+
+        polyline {
+          .transition(stroke .5s);
+        }
       }
 
       &:hover {
@@ -204,6 +209,7 @@ hr {
   &.product-images {
     padding: 0;
     background: @brand-primary;
+    .transition(background .5s);
 
     .image {
       height: 100%;
@@ -220,6 +226,7 @@ hr {
     max-width: 450px;
     color: white;
     background: @brand-primary;
+    .transition(background .5s);
     overflow-x: visible;
     overflow-y: auto;
 
@@ -266,6 +273,11 @@ hr {
 
   &.product-reviews {
     flex-grow: 1;
+
+    .title {
+      .transition(color .5s);
+    }
+
     .review {
       display: table-row;
       .avatar {
@@ -284,6 +296,7 @@ hr {
         .name {
           margin: 0 0 10px 0;
           color: @brand-primary;
+          .transition(color .5s);
           font-size: 16px;
           font-weight: normal;
         }
@@ -297,6 +310,7 @@ hr {
   &.product-other {
     flex-grow: 1;
     background: @brand-primary;
+    .transition(background .5s);
     color: white;
     .title {
       color: white;
@@ -323,12 +337,8 @@ hr {
 
   svg {
     circle.inner {
-      -webkit-transition: all .5s;
-      -moz-transition: all .5s;
-      -ms-transition: all .5s;
-      -o-transition: all .5s;
-      transition: all .5s;
-      opacity: 0;
+      .transition(opacity .5s);
+      opacity: .25;
     }
   }
 

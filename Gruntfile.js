@@ -225,7 +225,7 @@ module.exports = function (grunt) {
 
         // Automatically inject Bower components into the app
         wiredep:       {
-            app:     {
+            app: {
                 src:        ['<%= yeoman.tmp %>/index.html'],
                 ignorePath: /..\//,
                 exclude:    [
@@ -348,8 +348,7 @@ module.exports = function (grunt) {
                             '*.{ico,png,txt}',
                             '.htaccess',
                             'images/{,*/}*.{webp}',
-                            'fonts/*',
-                            'styles/colorize.less'
+                            'fonts/*'
                         ]
                     },
                     {

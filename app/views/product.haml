@@ -1,8 +1,6 @@
 .mc-page.internal
-  %a.back-button{ui: {sref: "marketplace"}}
-    %svg.icon{:width => "48px", :height => "48px"}
-      %polyline.mainStroke{:stroke => "#666", "stroke-width" => "4", :fill => "none", :points => "32,8 16,24 32,40"}
-  .mc-block.product-images.quadratic{ui: {view: "images"}}
-  .mc-block.product-details.rectangular{ui: {view: "details"}}
+  %a.mc-back{ui: {sref: "marketplace"}, color: "mainColor"}
+  .mc-block.product-images.quadratic{ui: {view: "images"}, mc: {custom: {background: "mainColor"}}}
+  .mc-block.product-details.rectangular{ui: {view: "details"}, mc: {custom: {background: "mainColor"}}}
   .mc-block.product-reviews.quadratic{ui: {view: "reviews"}}
-  .mc-block.product-other.quadratic{ui: {view: "other"}}
+  .mc-block.product-other.quadratic{ui: {view: "other"}, mc: {custom: {background: "mainColor"}}}
