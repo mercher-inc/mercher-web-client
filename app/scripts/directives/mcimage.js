@@ -8,8 +8,9 @@ angular.module('mercherWebClientApp')
                 image: '=mcImage',
                 size:  '@size'
             },
-            link:     function postLink(scope, element) {
+            link:     function (scope, element, attrs) {
                 scope.size = scope.size || 'm';
+
                 var devicePixelRatio = $window.devicePixelRatio || 1;
                 var devicePixelRatioName = 'mdpi';
 
@@ -26,8 +27,17 @@ angular.module('mercherWebClientApp')
                     devicePixelRatioName = 'xxxhdpi';
                 }
 
-                console.log(devicePixelRatio);
-                element.attr('src', '/uploads/' + scope.image.key + '/' + scope.image.files[scope.size][devicePixelRatioName].file);
+                scope.$watch('image', function (newImage) {
+                    setImage(newImage, scope.size);
+                });
+
+                scope.$watch('size', function (newSize) {
+                    setImage(scope.image, newSize);
+                });
+
+                function setImage(image, size){
+                    element.attr('src', '/uploads/' + image.key + '/' + image.files[scope.size][devicePixelRatioName].file);
+                }
             }
         };
     });
