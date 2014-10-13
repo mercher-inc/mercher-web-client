@@ -169,17 +169,22 @@ hr {
   // Internal page
   &.internal {
 
-    .back-button {
+    .mc-back {
       display: block;
       height: @mc-header-size;
       width: @mc-header-size;
       position: fixed;
       top: @mc-big-padding;
       background: rgba(255, 255, 255, 0.5);
+      .transition(background .5s);
       text-decoration: none;
 
-      .icon {
+      svg {
         margin: 6px;
+
+        polyline {
+          .transition(stroke .5s);
+        }
       }
 
       &:hover {
@@ -323,11 +328,7 @@ hr {
 
   svg {
     circle.inner {
-      -webkit-transition: all .5s;
-      -moz-transition: all .5s;
-      -ms-transition: all .5s;
-      -o-transition: all .5s;
-      transition: all .5s;
+      .transition(opacity .5s);
       opacity: .25;
     }
   }
