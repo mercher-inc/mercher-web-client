@@ -5,7 +5,7 @@ angular.module('mercherWebClientApp')
         return {
             restrict: 'A',
             scope:    {
-                rating: "=mcRating"
+                rating: '=mcRating'
             },
             templateUrl: '/views/directives/mcrating.html'
         };

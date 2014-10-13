@@ -208,46 +208,57 @@ hr {
     .image {
       height: 100%;
     }
+
+    .switcher {
+      position: absolute;
+      top: 50%;
+      left: 14px;
+    }
   }
 
   &.product-details {
     max-width: 450px;
     color: white;
     background: @brand-primary;
-    overflow: hidden;
+    overflow-x: visible;
     overflow-y: auto;
 
-    .title {
-      color: white;
-      margin: -@mc-big-padding -@mc-huge-padding @mc-small-padding -@mc-huge-padding;
-      padding: @mc-big-padding @mc-huge-padding @mc-small-padding @mc-huge-padding;
-      line-height: 20px;
-      font-size: 18px;
-      text-transform: uppercase;
-      font-weight: 300;
-      background: @brand-primary;
-      background: fadeout(@brand-primary, 50%);
-    }
+    .header {
+      height: 150px;
 
-    .price-info {
-      border-bottom: 1px solid fadeout(white, 50%);
-      padding: 0 0 10px 0;
-      margin: 0 0 10px 0;
-      .clearfix();
-
-      .price {
-        font-weight: bold;
-        float: left;
+      .title {
+        color: white;
+        margin: 0 0 10px 0;
+        padding: 0;
+        height: 60px;
+        line-height: 20px;
+        font-size: 18px;
+        text-transform: uppercase;
+        font-weight: 300;
       }
-      .availability {
-        float: right;
+
+      .price-info {
+        border-bottom: 1px solid fadeout(white, 50%);
+        padding: 0 0 10px 0;
+        margin: 0 0 10px 0;
+        line-height: 20px;
+        .clearfix();
+
+        .price {
+          font-weight: bold;
+          float: left;
+        }
+        .availability {
+          float: right;
+        }
+      }
+
+      .rating {
+        margin: 0 0 10px 0;
+        line-height: 20px;
       }
     }
 
-    .rating {
-      margin: 0 0 10px 0;
-    }
-    
     .description {
 
     }
@@ -303,6 +314,29 @@ hr {
 
     &.active {
       color: #ffffff;
+    }
+  }
+}
+
+.mc-radio {
+  cursor: pointer;
+
+  svg {
+    circle.inner {
+      -webkit-transition: all .5s;
+      -moz-transition: all .5s;
+      -ms-transition: all .5s;
+      -o-transition: all .5s;
+      transition: all .5s;
+      opacity: 0;
+    }
+  }
+
+  &.active {
+    svg {
+      circle.inner {
+        opacity: 1;
+      }
     }
   }
 }

@@ -3,15 +3,21 @@
 angular.module('mercherWebClientApp')
     .controller('ProductImagesCtrl', function ($scope, $stateParams, ProductResource, ProductImageResource) {
         $scope.productImages = [];
+        $scope.activeImage = null;
+
+        $scope.selectImage = function(image){
+            $scope.activeImage = image;
+            window.less.modifyVars({
+                '@mainColor': $scope.activeImage.mainColor,
+                '@colorSchema': $scope.activeImage.colorSchema
+            });
+        };
 
         ProductImageResource.get({productId: $stateParams.productId})
             .$promise.then(function (productImages) {
                 $scope.productImages = productImages.productImages;
                 if (productImages.productImages.length) {
-                    window.less.modifyVars({
-                        '@mainColor': productImages.productImages[0].image.mainColor,
-                        '@colorSchema': productImages.productImages[0].image.colorSchema
-                    });
+                    $scope.selectImage($scope.productImages[0].image);
                 }
             });
     });

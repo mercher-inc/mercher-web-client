@@ -1,9 +1,10 @@
-%div
+.header
   %h1.title
     {{ product.title }}
   .price-info{ng: {if: "product.price"}}
     %span.price {{ product.price | currency }}
     %span.availability {{ product.availability | uppercase }}
   .rating{ng: {if: "product.rating"}, mc: {rating: "product.rating"}}
-  .description
-    {{ product.description }}
+.description
+  {{ product.description }}
+.footer
