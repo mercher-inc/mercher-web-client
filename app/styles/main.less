@@ -209,6 +209,7 @@ hr {
   &.product-images {
     padding: 0;
     background: @brand-primary;
+    .transition(background .5s);
 
     .image {
       height: 100%;
@@ -225,6 +226,7 @@ hr {
     max-width: 450px;
     color: white;
     background: @brand-primary;
+    .transition(background .5s);
     overflow-x: visible;
     overflow-y: auto;
 
@@ -271,6 +273,11 @@ hr {
 
   &.product-reviews {
     flex-grow: 1;
+
+    .title {
+      .transition(color .5s);
+    }
+
     .review {
       display: table-row;
       .avatar {
@@ -289,6 +296,7 @@ hr {
         .name {
           margin: 0 0 10px 0;
           color: @brand-primary;
+          .transition(color .5s);
           font-size: 16px;
           font-weight: normal;
         }
@@ -302,6 +310,7 @@ hr {
   &.product-other {
     flex-grow: 1;
     background: @brand-primary;
+    .transition(background .5s);
     color: white;
     .title {
       color: white;
