@@ -226,6 +226,18 @@ hr {
       background: @brand-primary;
       background: fadeout(@brand-primary, 50%);
     }
+
+    .price-info {
+      border-bottom: 1px solid fadeout(white, 50%);
+      .clearfix();
+      .price {
+        font-weight: bold;
+        float: left;
+      }
+      .availability {
+        float: right;
+      }
+    }
   }
 
   &.product-reviews {

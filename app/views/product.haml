@@ -2,45 +2,7 @@
   %a.back-button{ui: {sref: "marketplace"}}
     %svg.icon{:width => "48px", :height => "48px"}
       %polyline.mainStroke{:stroke => "#666", "stroke-width" => "4", :fill => "none", :points => "32,8 16,24 32,40"}
-  .mc-block.product-images.quadratic
-    .image{ng: {repeat: "productImage in productImages"}}
-      %img{mc: {image: "productImage.image"}, size: "xl", height:"100%"}
-  .mc-block.product-details.rectangular
-    %h1.title
-      {{ product.title }}
-    %p.description
-      {{ product.description }}
-      %br/
-      %a{ui: {sref: "product({productId:1})"}}
-        First product
-      %br/
-      %a{ui: {sref: "product({productId:2})"}}
-        Second product
-  .mc-block.product-reviews.quadratic
-    %h1.title Reviews
-    %hr/
-    .review
-      .avatar
-        %img{src: "http://staging.mercherdev.com/uploads/20c71f063fad9adc446e7014bb8f6399412dd309/1e80d0d34c5a4685cb6d951bdb5c4e3f.JPG", height:"100"}
-      .description
-        %h3.name
-          Lorem ipsum dolor sit amet
-        %p.message
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nec sodales elit. Nullam at lacinia augue. Praesent vel fermentum nisl. Nulla euismod elit diam. Donec et nisi vitae sem venenatis eleifend at sed augue. Phasellus massa elit, tempor a condimentum ac, imperdiet quis sem. Integer blandit blandit leo, vitae varius nisi commodo vitae. Aenean accumsan odio vel massa luctus, ut sagittis eros tristique. Nulla sed gravida orci. Nulla luctus odio eu nisl ultricies bibendum non sed sem. Vestibulum dapibus interdum tellus, sit amet ornare quam semper eget.
-      .rating
-        test
-    %hr/
-    .review
-      .avatar
-        %img{src: "http://staging.mercherdev.com/uploads/20c71f063fad9adc446e7014bb8f6399412dd309/1e80d0d34c5a4685cb6d951bdb5c4e3f.JPG", height:"100"}
-      .description
-        %h3.name
-          Lorem ipsum dolor sit amet
-        %p.message
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nec sodales elit. Nullam at lacinia augue. Praesent vel fermentum nisl. Nulla euismod elit diam. Donec et nisi vitae sem venenatis eleifend at sed augue. Phasellus massa elit, tempor a condimentum ac, imperdiet quis sem. Integer blandit blandit leo, vitae varius nisi commodo vitae. Aenean accumsan odio vel massa luctus, ut sagittis eros tristique. Nulla sed gravida orci. Nulla luctus odio eu nisl ultricies bibendum non sed sem. Vestibulum dapibus interdum tellus, sit amet ornare quam semper eget.
-      .rating
-        test
-    %hr/
-
-  .mc-block.product-other.quadratic
-    %h1.title Other products
+  .mc-block.product-images.quadratic{ui: {view: "images"}}
+  .mc-block.product-details.rectangular{ui: {view: "details"}}
+  .mc-block.product-reviews.quadratic{ui: {view: "reviews"}}
+  .mc-block.product-other.quadratic{ui: {view: "other"}}
