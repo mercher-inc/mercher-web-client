@@ -7,6 +7,10 @@ angular.module('mercherWebClientApp')
 
         $scope.selectImage = function(image){
             $scope.activeImage = image;
+            window.less.modifyVars({
+                '@mainColor': $scope.activeImage.mainColor,
+                '@colorSchema': $scope.activeImage.colorSchema
+            });
         };
 
         ProductImageResource.get({productId: $stateParams.productId})
@@ -14,10 +18,6 @@ angular.module('mercherWebClientApp')
                 $scope.productImages = productImages.productImages;
                 if (productImages.productImages.length) {
                     $scope.selectImage($scope.productImages[0].image);
-                    window.less.modifyVars({
-                        '@mainColor': productImages.productImages[0].image.mainColor,
-                        '@colorSchema': productImages.productImages[0].image.colorSchema
-                    });
                 }
             });
     });
