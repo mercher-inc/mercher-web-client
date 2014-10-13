@@ -53,22 +53,22 @@ angular
             .state('product', {
                 url:   '/products/:productId',
                 views: {
-                    "": {
+                    '': {
                         templateUrl: 'views/product.html'
                     },
-                    "images@product": {
+                    'images@product': {
                         templateUrl: 'views/product/images.html',
                         controller:  'ProductImagesCtrl'
                     },
-                    "details@product": {
+                    'details@product': {
                         templateUrl: 'views/product/details.html',
                         controller:  'ProductDetailsCtrl'
                     },
-                    "reviews@product": {
+                    'reviews@product': {
                         templateUrl: 'views/product/reviews.html',
                         controller:  'ProductReviewsCtrl'
                     },
-                    "other@product": {
+                    'other@product': {
                         templateUrl: 'views/product/other.html',
                         controller:  'ProductOtherCtrl'
                     }

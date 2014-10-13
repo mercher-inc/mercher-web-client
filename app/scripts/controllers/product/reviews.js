@@ -2,7 +2,6 @@
 
 angular.module('mercherWebClientApp')
     .controller('ProductReviewsCtrl', function ($scope, $stateParams, ProductResource, ProductImageResource) {
-        console.log('ProductReviewsCtrl');
         $scope.productImages = [];
 
         ProductImageResource.get({productId: $stateParams.productId})

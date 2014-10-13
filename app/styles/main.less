@@ -214,6 +214,8 @@ hr {
     max-width: 450px;
     color: white;
     background: @brand-primary;
+    overflow: hidden;
+    overflow-y: auto;
 
     .title {
       color: white;
@@ -229,7 +231,10 @@ hr {
 
     .price-info {
       border-bottom: 1px solid fadeout(white, 50%);
+      padding: 0 0 10px 0;
+      margin: 0 0 10px 0;
       .clearfix();
+
       .price {
         font-weight: bold;
         float: left;
@@ -237,6 +242,14 @@ hr {
       .availability {
         float: right;
       }
+    }
+
+    .rating {
+      margin: 0 0 10px 0;
+    }
+    
+    .description {
+
     }
   }
 
@@ -282,4 +295,14 @@ hr {
 
 .mainStroke {
   stroke: @brand-primary;
+}
+
+.rating {
+  .star {
+    color: fadeout(#ffffff, 50%);
+
+    &.active {
+      color: #ffffff;
+    }
+  }
 }
