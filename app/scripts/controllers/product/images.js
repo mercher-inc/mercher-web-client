@@ -5,10 +5,11 @@ angular.module('mercherWebClientApp')
         $scope.productImages = [];
         $scope.activeImage = null;
 
-        $scope.selectImage = function(image){
+        $scope.selectImage = function (image) {
             $scope.activeImage = image;
+            $scope.$parent.mainColor = $scope.activeImage.mainColor;
             window.less.modifyVars({
-                '@mainColor': $scope.activeImage.mainColor,
+                '@mainColor':   $scope.activeImage.mainColor,
                 '@colorSchema': $scope.activeImage.colorSchema
             });
         };

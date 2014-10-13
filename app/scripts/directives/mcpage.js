@@ -14,7 +14,8 @@ angular.module('mercherWebClientApp')
                 updateHeight();
                 window.bind('resize', updateHeight);
             },
-            controller: function () {
+            controller: function ($scope) {
+                $scope.mainColor = '#3DA3A7';
             }
         };
     });

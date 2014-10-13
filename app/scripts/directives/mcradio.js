@@ -3,8 +3,11 @@
 angular.module('mercherWebClientApp')
     .directive('mcRadio', function () {
         return {
-            restrict: 'C',
+            restrict:          'C',
+            scope:             {
+                color: '=color'
+            },
             templateNamespace: 'svg',
-            templateUrl: '/views/directives/mcradio.html'
+            templateUrl:       '/views/directives/mcradio.html'
         };
     });

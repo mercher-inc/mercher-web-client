@@ -3,4 +3,4 @@
     %img{ng: {if: "activeImage"}, mc: {image: "activeImage"}, size: "xl", height:"100%"}
 
 .switcher
-  .mc-radio{ng: {repeat: "productImage in productImages", class: "{active: productImage.image === activeImage}", click: "selectImage(productImage.image)"}}
+  .mc-radio{color: "productImage.image.mainColor", ng: {repeat: "productImage in productImages", class: "{active: productImage.image === activeImage}", click: "selectImage(productImage.image)"}}
