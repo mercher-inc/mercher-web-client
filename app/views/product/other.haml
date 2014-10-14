@@ -4,7 +4,7 @@
   %h4.subtitle {{ shop.title }}
 
 .products-list
-  .product-card{ng: {repeat: "product in products"}}
+  %a.product-card{ng: {repeat: "product in products"}, ui: {sref: "product({productId: product.id})"}}
     .images
       %img.image{mc: {image: "productImage.image"}, size: "m", ng: {repeat: "productImage in product.productImages"}}
     .description
