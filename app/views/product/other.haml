@@ -1,2 +1,4 @@
-%div
-  %h1.title Other products
+.shop-info
+  %img.logo{mc: {image: "shop.image"}, size: "xs", ng: {if: "shop.image && shop.image.key"}}
+  %h3.title {{ shop.title }}
+  %h4.subtitle {{ shop.title }}

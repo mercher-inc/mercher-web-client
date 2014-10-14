@@ -62,7 +62,8 @@ angular
                 url:   '/products/:productId',
                 views: {
                     '':                {
-                        templateUrl: 'views/product.html'
+                        templateUrl: 'views/product.html',
+                        controller:  'ProductCtrl'
                     },
                     'images@product':  {
                         templateUrl: 'views/product/images.html',

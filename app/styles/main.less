@@ -324,11 +324,37 @@ hr {
     background: @brand-primary;
     .transition(background .5s);
     width: 800px;
-
     color: white;
-    .title {
-      color: white;
+
+    .shop-info {
+
+      .logo {
+        height: 70px;
+        width: 70px;
+        float: left;
+        border-radius: 100%;
+        border: 2px solid white;
+        background: white;
+        margin: -5px 10px -5px -5px;
+      }
+
+      .title, .subtitle {
+        color: white;
+        margin: 0;
+        padding: 0;
+      }
+
+      .title {
+        line-height: 40px;
+        font-size: 36px;
+      }
+
+      .subtitle {
+        line-height: 20px;
+        font-size: 18px;
+      }
     }
+
   }
 }
 
