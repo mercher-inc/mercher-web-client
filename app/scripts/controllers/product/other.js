@@ -1,18 +1,26 @@
 'use strict';
 
 angular.module('mercherWebClientApp')
-    .controller('ProductOtherCtrl', function ($scope, $stateParams, ProductResource, ProductImageResource) {
-        $scope.productImages = [];
+    .controller('ProductOtherCtrl', function ($scope, $stateParams, ProductResource) {
+        $scope.shop = null;
+        $scope.products = [];
+        $scope.$watch(
+            function ($scope) {
+                return $scope.product && $scope.product.shop ? $scope.product.shop : null;
+            },
+            function (shop) {
+                $scope.shop = shop;
+                $scope.products = [];
 
-        ProductImageResource.get({productId: $stateParams.productId})
-            .$promise.then(function (productImages) {
-                $scope.productImages = productImages.productImages;
-                if (productImages.productImages.length) {
-                    window.less.modifyVars({
-                        '@mainColor': productImages.productImages[0].image.mainColor,
-                        '@colorSchema': productImages.productImages[0].image.colorSchema
-                    });
+                if (shop) {
+                    ProductResource.listForShop({shopId: $scope.shop.id})
+                        .$promise.then(function (products) {
+                            console.log(products.products);
+                            $scope.products = products.products;
+                        });
                 }
-            });
+
+            }
+        );
     });
 

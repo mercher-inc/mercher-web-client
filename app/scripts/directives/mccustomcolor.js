@@ -7,7 +7,7 @@ angular.module('mercherWebClientApp')
             scope:    {
                 color: '=mcCustomColor'
             },
-            link:     function (scope, element, attrs) {
+            link:     function (scope, element) {
                 scope.$watch('color', function (newColor) {
                     element.css({
                         'color': newColor

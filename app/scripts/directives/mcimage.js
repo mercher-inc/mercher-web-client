@@ -8,7 +8,7 @@ angular.module('mercherWebClientApp')
                 image: '=mcImage',
                 size:  '@size'
             },
-            link:     function (scope, element, attrs) {
+            link:     function (scope, element) {
                 scope.size = scope.size || 'm';
 
                 var devicePixelRatio = $window.devicePixelRatio || 1;
@@ -35,8 +35,8 @@ angular.module('mercherWebClientApp')
                     setImage(scope.image, newSize);
                 });
 
-                function setImage(image, size){
-                    element.attr('src', '/uploads/' + image.key + '/' + image.files[scope.size][devicePixelRatioName].file);
+                function setImage(image, size) {
+                    element.attr('src', '/uploads/' + image.key + '/' + image.files[size][devicePixelRatioName].file);
                 }
             }
         };

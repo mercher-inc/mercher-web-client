@@ -4,6 +4,10 @@
   %span.price {{ product.price | currency }}
   %span.availability {{ product.availability | uppercase }}
 .rating{ng: {if: "product.rating"}, mc: {rating: "product.rating"}}
+.shop-info
+  From:
+  %a{ui: {sref: "shop({ shopId: product.shop.id })"}}
+    {{ product.shop.title }}
 .description
   {{ product.description }}
 .footer

@@ -156,6 +156,8 @@ hr {
     flex-grow: 0;
     flex-shrink: 0;
     flex-basis: 1;
+    overflow-x: hidden;
+    overflow-y: auto;
 
     // Quadratic block
     &.quadratic {
@@ -178,6 +180,7 @@ hr {
       background: rgba(255, 255, 255, 0.5);
       .transition(background .5s);
       text-decoration: none;
+      z-index: 100;
 
       svg {
         margin: 6px;
@@ -208,8 +211,7 @@ hr {
 
   &.product-images {
     padding: 0;
-    background: @brand-primary;
-    .transition(background .5s);
+    overflow: hidden;
 
     .image {
       height: 100%;
@@ -240,11 +242,18 @@ hr {
       color: white;
       margin: 0 0 10px 0;
       padding: 0;
-      height: 60px;
       line-height: 20px;
       font-size: 18px;
       text-transform: uppercase;
       font-weight: 300;
+    }
+
+    .shop-info {
+      margin: 0 0 10px 0;
+      line-height: 20px;
+      a {
+        color: white;
+      }
     }
 
     .price-info {
@@ -314,12 +323,88 @@ hr {
     flex-grow: 1;
     background: @brand-primary;
     .transition(background .5s);
-    width: 800px;
-
+    width: 970px;
     color: white;
-    .title {
-      color: white;
+
+    .shop-info {
+      margin: 0 0 30px 0;
+
+      .logo {
+        height: 70px;
+        width: 70px;
+        float: left;
+        border-radius: 100%;
+        border: 2px solid white;
+        background: white;
+        margin: -5px 10px -5px 0;
+      }
+
+      .title, .subtitle {
+        color: white;
+        margin: 0;
+        padding: 0;
+      }
+
+      .title {
+        line-height: 40px;
+        font-size: 36px;
+      }
+
+      .subtitle {
+        line-height: 20px;
+        font-size: 18px;
+      }
     }
+
+    .products-list {
+      width: 840px;
+      margin: 0 -15px;
+      .clearfix();
+
+      .product-card {
+        width: 250px;
+        margin: 0 15px 30px 15px;
+        overflow: hidden;
+        background: white;
+        float: left;
+
+        .images {
+          width: 250px;
+          height: 250px;
+          overflow: hidden;
+
+          .image {
+            width: 250px;
+            height: 250px;
+          }
+        }
+        .description {
+          height: 70px;
+          padding: 10px;
+
+          .title, .price {
+            font-size: 16px;
+            font-weight: normal;
+            line-height: 20px;
+            display: inline-block;
+          }
+
+          .title {
+            color: #333;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            white-space: nowrap;
+            width: 230px;
+          }
+
+          .price {
+            color: @brand-primary;
+          }
+
+        }
+      }
+    }
+
   }
 }
 

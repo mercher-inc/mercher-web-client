@@ -1,2 +1,14 @@
-%div
-  %h1.title Other products
+.shop-info
+  %img.logo{mc: {image: "shop.image"}, size: "xs", ng: {if: "shop.image && shop.image.key"}}
+  %h3.title {{ shop.title }}
+  %h4.subtitle {{ shop.title }}
+
+.products-list
+  %a.product-card{ng: {repeat: "product in products"}, ui: {sref: "product({productId: product.id})"}}
+    .images
+      %img.image{mc: {image: "productImage.image"}, size: "m", ng: {repeat: "productImage in product.productImages"}}
+    .description
+      %span.title
+        {{ product.title }}
+      %span.price{mc: {custom: {color: "mainColor"}}}
+        {{ product.price | currency }}
