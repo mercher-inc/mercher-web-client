@@ -1,6 +1,6 @@
 .mc-page.internal
   %a.mc-back{ui: {sref: "marketplace"}, color: "mainColor"}
   .mc-block.product-images.quadratic{ui: {view: "images"}, ng: {if: "product && product.productImages.length"}}
-  .mc-block.product-details{ui: {view: "details"}, mc: {custom: {background: "mainColor"}}, ng: {if: "product"}}
+  .mc-block.product-details{ui: {view: "details"}, mc: {custom: {color: "{\"background-color\": mainColor}"}}, ng: {if: "product"}}
   .mc-block.product-reviews{ui: {view: "reviews"}, ng: {if: "product"}}
-  .mc-block.product-other{ui: {view: "other"}, mc: {custom: {background: "mainColor"}}, ng: {if: "product"}}
+  .mc-block.product-other{ui: {view: "other"}, mc: {custom: {color: "{\"background-color\": mainColor}"}}, ng: {if: "product"}}

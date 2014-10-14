@@ -1,4 +1,4 @@
-.image{mc: {custom: {background: "activeImage.mainColor"}}}
+.image{mc: {custom: {color: "{\"background-color\": mainColor}"}}}
   %img{ng: {if: "activeImage"}, mc: {image: "activeImage"}, size: "xl"}
 
 .switcher{ng: {if: "product.productImages.length > 1"}, style: "height: {{ 32 * product.productImages.length + 4 * (product.productImages.length-1) }}px; margin-top: -{{ 16 * product.productImages.length + 2 * (product.productImages.length-1) }}px;"}
