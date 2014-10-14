@@ -155,7 +155,7 @@ hr {
   .mc-block {
     flex-grow: 0;
     flex-shrink: 0;
-    flex-basis: 2;
+    flex-basis: 1;
 
     // Quadratic block
     &.quadratic {
@@ -163,7 +163,6 @@ hr {
 
     // Rectangular block
     &.rectangular {
-      flex-basis: 1;
     }
   }
 
@@ -214,6 +213,12 @@ hr {
 
     .image {
       height: 100%;
+      width: 100%;
+
+      img {
+        height: 100%;
+        width: 100%;
+      }
     }
 
     .switcher {
@@ -224,47 +229,43 @@ hr {
   }
 
   &.product-details {
-    max-width: 450px;
     color: white;
     background: @brand-primary;
     .transition(background .5s);
     overflow-x: visible;
     overflow-y: auto;
+    width: 400px;
 
-    .header {
-      height: 150px;
+    .title {
+      color: white;
+      margin: 0 0 10px 0;
+      padding: 0;
+      height: 60px;
+      line-height: 20px;
+      font-size: 18px;
+      text-transform: uppercase;
+      font-weight: 300;
+    }
 
-      .title {
-        color: white;
-        margin: 0 0 10px 0;
-        padding: 0;
-        height: 60px;
-        line-height: 20px;
-        font-size: 18px;
-        text-transform: uppercase;
-        font-weight: 300;
+    .price-info {
+      border-bottom: 1px solid fadeout(white, 50%);
+      padding: 0 0 10px 0;
+      margin: 0 0 10px 0;
+      line-height: 20px;
+      .clearfix();
+
+      .price {
+        font-weight: bold;
+        float: left;
       }
-
-      .price-info {
-        border-bottom: 1px solid fadeout(white, 50%);
-        padding: 0 0 10px 0;
-        margin: 0 0 10px 0;
-        line-height: 20px;
-        .clearfix();
-
-        .price {
-          font-weight: bold;
-          float: left;
-        }
-        .availability {
-          float: right;
-        }
+      .availability {
+        float: right;
       }
+    }
 
-      .rating {
-        margin: 0 0 10px 0;
-        line-height: 20px;
-      }
+    .rating {
+      margin: 0 0 10px 0;
+      line-height: 20px;
     }
 
     .description {
@@ -274,6 +275,7 @@ hr {
 
   &.product-reviews {
     flex-grow: 1;
+    width: 800px;
 
     .title {
       .transition(color .5s);
@@ -312,6 +314,8 @@ hr {
     flex-grow: 1;
     background: @brand-primary;
     .transition(background .5s);
+    width: 800px;
+
     color: white;
     .title {
       color: white;
@@ -335,6 +339,9 @@ hr {
 
 .mc-radio {
   cursor: pointer;
+  height: 32px;
+  width: 32px;
+  margin: 0 4px 4px 0;
 
   svg {
     circle.inner {

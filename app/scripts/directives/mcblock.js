@@ -10,7 +10,9 @@ angular.module('mercherWebClientApp')
                 var updateDimentions = function () {
                     if (element.hasClass('quadratic')) {
                         element.css({
-                            width: window.innerHeight()
+                            'width':     element.outerHeight(),
+                            'max-width': element.outerHeight(),
+                            'min-width': element.outerHeight()
                         });
                     } else if (element.hasClass('rectangular')) {
                         element.css({
