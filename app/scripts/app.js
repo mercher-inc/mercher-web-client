@@ -46,17 +46,25 @@ angular
                 controller:  'MarketplaceCtrl'
             })
 
-            /////////////////
-            // Marketplace //
-            /////////////////
+            //////////
+            // Shop //
+            //////////
+
+            .state('shop', {
+                url: '/shops/:shopId'
+            })
+
+            /////////////
+            // Product //
+            /////////////
 
             .state('product', {
                 url:   '/products/:productId',
                 views: {
-                    '': {
+                    '':                {
                         templateUrl: 'views/product.html'
                     },
-                    'images@product': {
+                    'images@product':  {
                         templateUrl: 'views/product/images.html',
                         controller:  'ProductImagesCtrl'
                     },
@@ -68,7 +76,7 @@ angular
                         templateUrl: 'views/product/reviews.html',
                         controller:  'ProductReviewsCtrl'
                     },
-                    'other@product': {
+                    'other@product':   {
                         templateUrl: 'views/product/other.html',
                         controller:  'ProductOtherCtrl'
                     }

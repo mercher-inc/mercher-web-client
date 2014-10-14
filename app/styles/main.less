@@ -156,6 +156,8 @@ hr {
     flex-grow: 0;
     flex-shrink: 0;
     flex-basis: 1;
+    overflow-x: hidden;
+    overflow-y: auto;
 
     // Quadratic block
     &.quadratic {
@@ -178,6 +180,7 @@ hr {
       background: rgba(255, 255, 255, 0.5);
       .transition(background .5s);
       text-decoration: none;
+      z-index: 100;
 
       svg {
         margin: 6px;
@@ -208,8 +211,7 @@ hr {
 
   &.product-images {
     padding: 0;
-    background: @brand-primary;
-    .transition(background .5s);
+    overflow: hidden;
 
     .image {
       height: 100%;
@@ -240,11 +242,18 @@ hr {
       color: white;
       margin: 0 0 10px 0;
       padding: 0;
-      height: 60px;
       line-height: 20px;
       font-size: 18px;
       text-transform: uppercase;
       font-weight: 300;
+    }
+
+    .shop-info {
+      margin: 0 0 10px 0;
+      line-height: 20px;
+      a {
+        color: white;
+      }
     }
 
     .price-info {
