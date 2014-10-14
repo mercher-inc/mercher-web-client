@@ -233,7 +233,6 @@ hr {
   &.product-details {
     color: white;
     background: @brand-primary;
-    .transition(background .5s);
     overflow-x: visible;
     overflow-y: auto;
     width: 400px;
@@ -287,7 +286,6 @@ hr {
     width: 800px;
 
     .title {
-      .transition(color .5s);
     }
 
     .review {
@@ -308,7 +306,6 @@ hr {
         .name {
           margin: 0 0 10px 0;
           color: @brand-primary;
-          .transition(color .5s);
           font-size: 16px;
           font-weight: normal;
         }
@@ -322,12 +319,16 @@ hr {
   &.product-other {
     flex-grow: 1;
     background: @brand-primary;
-    .transition(background .5s);
     width: 970px;
     color: white;
 
     .shop-info {
       margin: 0 0 30px 0;
+      display: block;
+
+      &, &:hover, &:active, &:visited, &:focus {
+        text-decoration: none;
+      }
 
       .logo {
         height: 70px;

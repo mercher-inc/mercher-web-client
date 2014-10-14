@@ -10,7 +10,10 @@ angular.module('mercherWebClientApp')
             link:     function (scope, element) {
                 scope.$watch('color', function (newColor) {
                     element.css({
-                        'color': newColor
+                        'color':              newColor,
+                        '-webkit-transition': 'color 0.5s',
+                        '-o-transition':      'color 0.5s',
+                        'transition':         'color 0.5s'
                     });
                 });
             }
