@@ -8,12 +8,11 @@ angular.module('mercherWebClientApp')
             link:       function (scope, element) {
                 var window = angular.element($window);
                 var updateDimentions = function () {
-                    element.css({
-                        height: window.innerHeight()
-                    });
                     if (element.hasClass('quadratic')) {
                         element.css({
-                            width: window.innerHeight()
+                            'width':     element.outerHeight(),
+                            'max-width': element.outerHeight(),
+                            'min-width': element.outerHeight()
                         });
                     } else if (element.hasClass('rectangular')) {
                         element.css({
