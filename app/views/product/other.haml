@@ -1,7 +1,8 @@
 %a.shop-info{ui: {sref: "shop({shopId: shop.id})"}}
   %img.logo{mc: {image: "shop.image"}, size: "xs", ng: {if: "shop.image && shop.image.key"}}
   %h3.title {{ shop.title }}
-  %h4.subtitle {{ shop.title }}
+  %h4.subtitle{ng: {if: "shop.subtitle"}}
+    {{ shop.subtitle }}
 
 .products-list
   %a.product-card{ng: {repeat: "product in products"}, ui: {sref: "product({productId: product.id})"}}

@@ -1,5 +1,7 @@
 %h1.title
   {{ product.title }}
+  %span.subtitle{ng: {if: "product.subtitle"}}
+    \/ {{ product.subtitle }}
 .price-info{ng: {if: "product.price"}}
   %span.price {{ product.price | currency }}
   %span.availability {{ product.availability | uppercase }}
