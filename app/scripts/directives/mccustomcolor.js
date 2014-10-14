@@ -5,12 +5,18 @@ angular.module('mercherWebClientApp')
         return {
             restrict: 'A',
             scope:    {
-                color: '=mcCustomColor'
+                attributes: '=mcCustomColor'
             },
             link:     function (scope, element) {
-                scope.$watch('color', function (newColor) {
+                scope.$watch('attributes', function (newAttributes) {
+                    element.css(newAttributes);
+                    var transitionRule = Object.keys(newAttributes).map(function (attr) {
+                        return attr + ' .5s'
+                    }).join(', ');
                     element.css({
-                        'color': newColor
+                        '-webkit-transition': transitionRule,
+                        '-o-transition':      transitionRule,
+                        'transition':         transitionRule
                     });
                 });
             }

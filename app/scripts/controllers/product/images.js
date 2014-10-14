@@ -2,20 +2,17 @@
 
 angular.module('mercherWebClientApp')
     .controller('ProductImagesCtrl', function ($scope, $stateParams, ProductResource, ProductImageResource) {
-        $scope.productImages = [];
         $scope.activeImage = null;
+
+        $scope.$watch('product', function (product) {
+            if (product && product.productImages.length) {
+                $scope.selectImage(product.productImages[0].image);
+            }
+        });
 
         $scope.selectImage = function (image) {
             $scope.activeImage = image;
-            $scope.$parent.mainColor = $scope.activeImage.mainColor;
+            $scope.$parent.$parent.mainColor = $scope.activeImage.mainColor;
         };
-
-        ProductImageResource.get({productId: $stateParams.productId})
-            .$promise.then(function (productImages) {
-                $scope.productImages = productImages.productImages;
-                if (productImages.productImages.length) {
-                    $scope.selectImage($scope.productImages[0].image);
-                }
-            });
     });
 

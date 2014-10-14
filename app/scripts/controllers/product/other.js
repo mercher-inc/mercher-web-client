@@ -15,7 +15,6 @@ angular.module('mercherWebClientApp')
                 if (shop) {
                     ProductResource.listForShop({shopId: $scope.shop.id})
                         .$promise.then(function (products) {
-                            console.log(products.products);
                             $scope.products = products.products;
                         });
                 }
