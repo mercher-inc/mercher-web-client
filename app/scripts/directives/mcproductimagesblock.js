@@ -19,17 +19,18 @@ angular.module('mercherWebClientApp')
                         scope.selectProductImage(scope.productImages[currentImageIndex - 1]);
                     }
                 });
-            },
-            controller:  function ($scope, $element) {
-                $scope.$watch('productImages', function (newProductImages) {
+                angular.element(window).bind('resize', function () {
+                    scope.selectProductImage(scope.currentProductImage);
+                });
+                scope.$watch('productImages', function (newProductImages) {
                     if (newProductImages.length) {
-                        $scope.selectProductImage(newProductImages[0]);
+                        scope.selectProductImage(newProductImages[0]);
                     }
                 });
-                $scope.selectProductImage = function (productImage) {
-                    var imagesElement = $element.children('.images').first(),
-                        switcherElement = $element.children('.switcher').first(),
-                        currentImageIndex = $scope.productImages.indexOf(productImage);
+                scope.selectProductImage = function (productImage) {
+                    var imagesElement = element.children('.images').first(),
+                        switcherElement = element.children('.switcher').first(),
+                        currentImageIndex = scope.productImages.indexOf(productImage);
                     imagesElement.css({
                         position:   'relative',
                         transition: 'top .5s',
@@ -39,7 +40,7 @@ angular.module('mercherWebClientApp')
                     if (switcherElement.children('.mc-radio')[currentImageIndex]) {
                         angular.element(switcherElement.children('.mc-radio')[currentImageIndex]).addClass('active');
                     }
-                    $scope.currentProductImage = productImage;
+                    scope.currentProductImage = productImage;
                 }
             }
         };
