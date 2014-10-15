@@ -20,20 +20,21 @@ angular.module('mercherWebClientApp')
                     }
                 });
                 angular.element(window).bind('resize', function () {
-                    scope.selectProductImage(scope.currentProductImage);
+                    scope.selectProductImage(scope.currentProductImage, 0);
                 });
                 scope.$watch('productImages', function (newProductImages) {
                     if (newProductImages.length) {
                         scope.selectProductImage(newProductImages[0]);
                     }
                 });
-                scope.selectProductImage = function (productImage) {
+                scope.selectProductImage = function (productImage, speed) {
                     var imagesElement = element.children('.images').first(),
                         switcherElement = element.children('.switcher').first(),
                         currentImageIndex = scope.productImages.indexOf(productImage);
+                    speed = speed === undefined ? 500 : speed;
                     imagesElement.css({
                         position:   'relative',
-                        transition: 'top .5s',
+                        transition: 'top ' + (speed / 1000) + 's',
                         top:        imagesElement.children('.image').height() * -1 * currentImageIndex
                     });
                     switcherElement.children('.mc-radio').removeClass('active');
