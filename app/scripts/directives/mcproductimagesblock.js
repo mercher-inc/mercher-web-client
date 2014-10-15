@@ -28,12 +28,17 @@ angular.module('mercherWebClientApp')
                 });
                 $scope.selectProductImage = function (productImage) {
                     var imagesElement = $element.children('.images').first(),
+                        switcherElement = $element.children('.switcher').first(),
                         currentImageIndex = $scope.productImages.indexOf(productImage);
                     imagesElement.css({
                         position:   'relative',
                         transition: 'top .5s',
                         top:        imagesElement.children('.image').height() * -1 * currentImageIndex
                     });
+                    switcherElement.children('.mc-radio').removeClass('active');
+                    if (switcherElement.children('.mc-radio')[currentImageIndex]) {
+                        angular.element(switcherElement.children('.mc-radio')[currentImageIndex]).addClass('active');
+                    }
                     $scope.currentProductImage = productImage;
                 }
             }
