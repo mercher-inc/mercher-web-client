@@ -65,10 +65,6 @@ angular
                         templateUrl: 'views/product.html',
                         controller:  'ProductCtrl'
                     },
-                    'images@product':  {
-                        templateUrl: 'views/product/images.html',
-                        controller:  'ProductImagesCtrl'
-                    },
                     'details@product': {
                         templateUrl: 'views/product/details.html',
                         controller:  'ProductDetailsCtrl'

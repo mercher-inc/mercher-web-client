@@ -1,0 +1,6 @@
+.images
+  .image{mc: {custom: {color: "{\"background-color\": productImage.mainColor}"}}, ng: {repeat: "productImage in productImages"}}
+    %img{mc: {image: "productImage.image"}, size: "xl"}
+
+.switcher{ng: {if: "productImages.length > 1"}, style: "height: {{ 32 * productImages.length + 4 * (productImages.length-1) }}px; margin-top: -{{ 16 * productImages.length + 2 * (productImages.length-1) }}px;"}
+  .mc-radio{color: "productImage.image.mainColor", ng: {repeat: "productImage in productImages", class: "{active: productImage.image == currentProductImage.image}", click: "selectProductImage(productImage)"}}
