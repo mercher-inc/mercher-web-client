@@ -1,0 +1,22 @@
+// mcRadio
+.mc-radio {
+  cursor: pointer;
+  height: 32px;
+  width: 32px;
+  margin: 0 4px 4px 0;
+
+  svg {
+    circle.inner {
+      .transition(opacity .5s);
+      opacity: .25;
+    }
+  }
+
+  &.active {
+    svg {
+      circle.inner {
+        opacity: 1;
+      }
+    }
+  }
+}

@@ -1,0 +1,23 @@
+// mcPage
+.mc-page {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: stretch;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  overflow-x: auto;
+  overflow-y: hidden;
+
+  // Internal page
+  &.internal {
+
+  }
+
+  @import "mc-back";
+  @import "mc-block";
+}
