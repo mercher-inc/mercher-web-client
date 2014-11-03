@@ -89,7 +89,7 @@
     }
 
     .rating {
-      margin: 0 0 10px 0;
+      margin: 10px 0;
       line-height: 20px;
     }
 
@@ -127,8 +127,37 @@
           font-weight: normal;
         }
       }
-      .rating {
+
+      .mc-rating {
         display: table-cell;
+        .negative {
+          .star {
+            fill: white;
+
+            &.active {
+              fill: #da4a3a;
+            }
+          }
+        }
+        .neutral {
+          .star {
+            fill: white;
+
+            &.active {
+              fill: #c9c8c8;
+            }
+          }
+        }
+        .positive {
+          .star {
+            fill: white;
+
+            &.active {
+              fill: #39b473;
+            }
+          }
+
+        }
       }
     }
   }

@@ -1,10 +1,16 @@
 // mcRating
 .mc-rating {
+  display: inline-block;
+  svg {
+    vertical-align: middle;
+    display: inline-block;
+  }
+
   .star {
-    color: fadeout(#ffffff, 50%);
+    fill: fadeout(white, 50%);
 
     &.active {
-      color: #ffffff;
+      fill: white;
     }
   }
 }

@@ -5,7 +5,9 @@
 .price-info{ng: {if: "product.price"}}
   %span.price {{ product.price | currency }}
   %span.availability {{ product.availability | uppercase }}
-.mc-rating{ng: {if: "product.rating"}, mc: {rating: "product.rating"}}
+.rating
+  .mc-rating{ng: {if: "product.rating"}, rating: "product.rating"}
+  {{ product.rating }}
 .shop-info
   From:
   %a{ui: {sref: "shop({ shopId: product.shop.id })"}}
