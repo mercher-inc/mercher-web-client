@@ -101,7 +101,8 @@ angular.module('mercherWebClientApp')
                 }
             }
         );
-    }]).factory('ProductImages', ['$resource', function ($resource) {
+    }])
+    .factory('ProductImages', ['$resource', function ($resource) {
         return $resource(
             '/api/v1/product_images',
             null,
@@ -122,6 +123,32 @@ angular.module('mercherWebClientApp')
                     method:       'PUT',
                     url:          '/api/v1/product_images/:productImageId',
                     params:       {productImageId: '@productImageId'},
+                    responseType: 'json'
+                }
+            }
+        );
+    }])
+    .factory('ProductReviews', ['$resource', function ($resource) {
+        return $resource(
+            '/api/v1/product_reviews',
+            null,
+            {
+                'queryForProduct': {
+                    method:       'GET',
+                    url:          '/api/v1/products/:productId/product_reviews',
+                    params:       {productId: '@productId'},
+                    responseType: 'json'
+                },
+                'get':             {
+                    method:       'GET',
+                    url:          '/api/v1/product_reviews/:productReviewId',
+                    params:       {productReviewId: '@productReviewId'},
+                    responseType: 'json'
+                },
+                'save':            {
+                    method:       'PUT',
+                    url:          '/api/v1/product_reviews/:productReviewId',
+                    params:       {productReviewId: '@productReviewId'},
                     responseType: 'json'
                 }
             }
