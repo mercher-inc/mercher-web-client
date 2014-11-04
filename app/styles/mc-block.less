@@ -1,0 +1,24 @@
+@import "variables";
+
+// mcBlock
+.mc-block {
+  flex-grow: 0;
+  flex-shrink: 0;
+  flex-basis: 1;
+  overflow-x: hidden;
+  overflow-y: auto;
+  padding: @mc-big-padding @mc-header-size + @mc-small-padding;
+
+  > h1.title {
+    margin: 0;
+    padding: 0;
+    line-height: @mc-header-size;
+    font-size: 40px;
+    color: @brand-primary;
+    .transition(color .5s);
+  }
+
+  @import "mc-block/product-reviews";
+  @import "mc-block/product-details";
+  @import "mc-block/product-other";
+}

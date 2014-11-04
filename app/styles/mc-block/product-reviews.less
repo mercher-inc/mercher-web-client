@@ -1,0 +1,99 @@
+&.product-reviews {
+  flex-grow: 1;
+  width: 800px;
+
+  > h1.title {
+    border-bottom: 1px solid #e3e3e3;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+  }
+
+  .review {
+    min-height: 80px;
+    border-bottom: 1px solid #e3e3e3;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+
+    .avatar {
+      float: left;
+      img {
+        height: 70px;
+        width: 70px;
+        margin: -5px 15px -5px -5px;
+        border-radius: 100%;
+        border: 3px solid #ddd;
+        vertical-align: text-top;
+      }
+    }
+    .description {
+      margin: 0 65px 0 80px;
+
+      .name {
+        margin: 0 0 10px 0;
+        color: @brand-primary;
+        .transition(color .5s);
+        font-size: 16px;
+        font-weight: normal;
+      }
+
+      .comment {
+        color: darken(@brand-primary, 25%);
+        .transition(color .5s);
+        text-align: justify;
+      }
+    }
+
+    .rating {
+      float: right;
+      .mc-rating {
+        .negative {
+          .star {
+            fill: #fbfbfb;
+
+            &.active {
+              fill: #da4a3a;
+            }
+          }
+        }
+        .neutral {
+          .star {
+            fill: #fbfbfb;
+
+            &.active {
+              fill: #c1c0c0;
+            }
+          }
+        }
+        .positive {
+          .star {
+            fill: #fbfbfb;
+
+            &.active {
+              fill: #39b473;
+            }
+          }
+        }
+      }
+    }
+
+    .date {
+      float: right;
+      color: #cacaca;
+      margin-left: 15px;
+      width: 50px;
+      height: 40px;
+      line-height: 20px;
+
+      .day {
+        font-size: 14px;
+        text-align: center;
+        font-weight: 400;
+      }
+      .year {
+        font-size: 21px;
+        text-align: center;
+        font-weight: 300;
+      }
+    }
+  }
+}

@@ -1,0 +1,25 @@
+// mcBack
+.mc-back {
+  display: block;
+  height: @mc-header-size;
+  width: @mc-header-size;
+  position: fixed;
+  top: @mc-big-padding;
+  background: rgba(255, 255, 255, 0.5);
+  .transition(background .5s);
+  text-decoration: none;
+  z-index: 100;
+
+  svg {
+    margin: 6px;
+
+    polyline {
+      .transition(stroke .5s);
+      stroke: @brand-primary;
+    }
+  }
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.6);
+  }
+}

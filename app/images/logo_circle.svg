@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" baseProfile="full" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:ev="http://www.w3.org/2001/xml-events" width="512px" height="512px">
+    <circle cx="256" cy="256" r="256" fill="#3DA3A7"></circle>
+    <g fill="white" transform="translate(64, 150) scale(0.75, 0.75)">
+        <polygon points="
+            0,0
+            64,36.95041722813605
+            64,110.85125168440814
+            0,73.9008344562721
+        "></polygon>
+        <polygon points="
+            0,92.37604307034012
+            64,129.32646029847615
+            64,203.22729475474824
+            0,166.2768775266122
+        "></polygon>
+        <polygon points="
+            80,46.18802153517006
+            144,83.1384387633061
+            144,157.0392732195782
+            80,120.08885599144214
+        "></polygon>
+        <polygon points="
+            80,138.56406460551017
+            144,175.51448183364622
+            144,249.4153162899183
+            80,212.46489906178226
+        "></polygon>
+        <polygon points="
+            160,92.37604307034012
+            256,147.8016689125442
+            512,0
+            512,73.9008344562721
+            256,221.70250336881628
+            160,166.2768775266122
+        "></polygon>
+        <polygon points="
+            160,184.75208614068023
+            255.99999999999997,240.1777119828843
+            512,92.37604307034012
+            512,166.2768775266122
+            256.00000000000006,314.0785464391564
+            160,258.6529205969523
+        "></polygon>
+    </g>
+</svg>

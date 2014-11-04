@@ -3,10 +3,11 @@
 angular.module('mercherWebClientApp')
     .directive('mcRating', function () {
         return {
-            restrict: 'A',
+            restrict: 'C',
             scope:    {
-                rating: '=mcRating'
+                rating: '=rating'
             },
+            templateNamespace: 'svg',
             templateUrl: '/views/directives/mcrating.html'
         };
     });
