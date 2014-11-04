@@ -5,6 +5,7 @@ angular.module('mercherWebClientApp')
         return {
             restrict:   'C',
             controller: function ($scope, $element) {
+                var less = window.less;
                 $scope.classes = {};
                 $scope.$on('colorize', function (e, mainColor, colorSchema) {
                     var colorizeClass = 'colorize_' + mainColor.replace('#', '') + '_' + colorSchema;
@@ -16,7 +17,7 @@ angular.module('mercherWebClientApp')
                                 $element.append(result.css);
                             });
                     }
-                })
+                });
             }
         };
     });

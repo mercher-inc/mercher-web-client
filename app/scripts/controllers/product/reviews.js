@@ -5,7 +5,6 @@ angular.module('mercherWebClientApp')
         $scope.productReviews = [];
         ProductReviews.queryForProduct({productId: $stateParams['productId']})
             .$promise.then(function (productReviews) {
-                console.log(productReviews);
                 $scope.productReviews = productReviews['productReviews'];
             });
     });

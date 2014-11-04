@@ -1,29 +1,21 @@
 'use strict';
 
 angular.module('mercherWebClientApp')
-    .directive('mcBlock', function ($window) {
+    .directive('mcBlock', function () {
         return {
-            require:    '^mcPage',
-            restrict:   'C',
-            link:       function (scope, element) {
-                var window = angular.element($window);
-                var updateDimentions = function () {
-                    if (element.hasClass('quadratic')) {
-                        element.css({
-                            'width':     element.outerHeight(),
-                            'max-width': element.outerHeight(),
-                            'min-width': element.outerHeight()
-                        });
-                    } else if (element.hasClass('rectangular')) {
-                        element.css({
-                            width: window.innerHeight() / 2
-                        });
+            require:  '^mcPage',
+            restrict: 'C',
+            link:     function (scope, element) {
+                element.bind('wheel', function (e) {
+                    e.preventDefault();
+                    if (e.originalEvent['deltaY'] < 0 && element.scrollTop() > 0) {
+                        e.stopPropagation();
+                        element.scrollTop(element.scrollTop() + e.originalEvent['deltaY']);
+                    } else if (e.originalEvent['deltaY'] > 0 && element.scrollTop() + element.outerHeight() < this.scrollHeight) {
+                        e.stopPropagation();
+                        element.scrollTop(element.scrollTop() + e.originalEvent['deltaY']);
                     }
-                };
-                updateDimentions();
-                window.bind('resize', updateDimentions);
-            },
-            controller: function () {
+                });
             }
         };
     });

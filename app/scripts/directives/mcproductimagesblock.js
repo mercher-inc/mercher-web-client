@@ -1,24 +1,41 @@
 'use strict';
 
 angular.module('mercherWebClientApp')
-    .directive('mcProductImagesBlock', function () {
+    .directive('mcProductImagesBlock', function ($window) {
         return {
             require:     '^mcPage',
+            restrict:    'C',
             scope:       {
                 productImages: '=productImages'
             },
             templateUrl: '/views/directives/mcproductimagesblock.html',
-            restrict:    'C',
             link:        function (scope, element) {
                 element.bind('wheel', function (e) {
                     e.preventDefault();
+
                     var currentImageIndex = scope.productImages.indexOf(scope.currentProductImage);
-                    if (e.originalEvent['deltaY'] > 0 && scope.productImages.length > currentImageIndex + 1) {
+                    if (e.originalEvent.deltaY > 0 && scope.productImages.length > currentImageIndex + 1) {
+                        e.stopPropagation();
                         scope.selectProductImage(scope.productImages[currentImageIndex + 1]);
-                    } else if (e.originalEvent['deltaY'] < 0 && currentImageIndex > 0) {
+                    } else if (e.originalEvent.deltaY < 0 && currentImageIndex > 0) {
+                        e.stopPropagation();
                         scope.selectProductImage(scope.productImages[currentImageIndex - 1]);
                     }
                 });
+
+
+                var window = angular.element($window);
+                var updateDimentions = function () {
+                    element.css({
+                        'width':     element.outerHeight(),
+                        'max-width': element.outerHeight(),
+                        'min-width': element.outerHeight()
+                    });
+                };
+                updateDimentions();
+                window.bind('resize', updateDimentions);
+
+
                 angular.element(window).bind('resize', function () {
                     scope.selectProductImage(scope.currentProductImage, 0);
                 });
@@ -42,8 +59,8 @@ angular.module('mercherWebClientApp')
                         angular.element(switcherElement.children('.mc-radio')[currentImageIndex]).addClass('active');
                     }
                     scope.currentProductImage = productImage;
-                    scope.$emit('colorize', productImage.image['mainColor'], productImage.image['colorSchema']);
-                }
+                    scope.$emit('colorize', productImage.image.mainColor, productImage.image.colorSchema);
+                };
             }
         };
     });
