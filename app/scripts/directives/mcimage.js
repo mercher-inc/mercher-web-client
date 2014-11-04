@@ -36,7 +36,11 @@ angular.module('mercherWebClientApp')
                 });
 
                 function setImage(image, size) {
-                    element.attr('src', '/uploads/' + image.key + '/' + image.files[size][devicePixelRatioName].file);
+                    if (image.files && image.files[size] && image.files[size][devicePixelRatioName] && image.files[size][devicePixelRatioName].file) {
+                        element.attr('src', '/uploads/' + image.key + '/' + image.files[size][devicePixelRatioName].file);
+                    } else {
+                        element.attr('src', '/images/default100.png');
+                    }
                 }
             }
         };
