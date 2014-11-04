@@ -1,3 +1,4 @@
+@import "variables";
 // mcBlock
 .mc-block {
   flex-grow: 0;
@@ -5,17 +6,9 @@
   flex-basis: 1;
   overflow-x: hidden;
   overflow-y: auto;
-  padding: @mc-big-padding @mc-huge-padding;
+  padding: @mc-big-padding @mc-header-size + @mc-small-padding;
 
-  // Quadratic block
-  &.quadratic {
-  }
-
-  // Rectangular block
-  &.rectangular {
-  }
-
-  .title {
+  > h1.title {
     margin: 0;
     padding: 0;
     line-height: @mc-header-size;

@@ -1,15 +1,15 @@
-%div
-  %h1.title{mc: {custom: {color: "{color: mainColor}"}}} Reviews
-  %hr/
+%h1.title{mc: {custom: {color: "{color: mainColor}"}}} Reviews
 
-  %div{ng: {repeat: "productReview in productReviews"}}
-    .review
-      .avatar
-        %img{mc: {image: "productReview.user.image"}, size: "xs", height:"100"}
-      .description
-        %h3.name{mc: {custom: {color: "{color: mainColor}"}}}
-          {{ productReview.user.firstName }} {{ productReview.user.lastName }}
-        %p.message
-          {{ productReview.comment }}
-      .mc-rating{rating: "productReview.rating"}
-    %hr/
+.review{ng: {repeat: "productReview in productReviews"}}
+  .avatar
+    %img{mc: {image: "productReview.user.image"}, size: "xs", height:"100"}
+  .date
+    .day {{ productReview.createdAt | date : 'MMM dd' | uppercase }}
+    .year {{ productReview.createdAt | date : 'yyyy' | uppercase }}
+  .rating
+    .mc-rating{rating: "productReview.rating"}
+  .description
+    %h3.name{mc: {custom: {color: "{color: mainColor}"}}}
+      {{ productReview.user.firstName }} {{ productReview.user.lastName }}
+    %p.comment
+      {{ productReview.comment }}
