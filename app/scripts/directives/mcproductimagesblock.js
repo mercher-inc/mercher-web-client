@@ -42,6 +42,7 @@ angular.module('mercherWebClientApp')
                         angular.element(switcherElement.children('.mc-radio')[currentImageIndex]).addClass('active');
                     }
                     scope.currentProductImage = productImage;
+                    scope.$emit('colorize', productImage.image['mainColor'], productImage.image['colorSchema']);
                 }
             }
         };

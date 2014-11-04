@@ -1,0 +1,48 @@
+&.mc-page {
+  .mc-block {
+    > h1.title {
+      color: @mainColor;
+    }
+    &.product-details {
+      background: @mainColor;
+      .title {
+        color: white;
+      }
+    }
+    &.product-reviews {
+      .review {
+        .description {
+          .name {
+            color: @mainColor;
+          }
+          .comment {
+            color: darken(@mainColor, 25%);
+          }
+        }
+      }
+    }
+    &.product-other {
+      background: @mainColor;
+      .products-list {
+        .product-card {
+          .description {
+            .title {
+              color: darken(@mainColor, 25%);
+            }
+            .price {
+              color: @mainColor;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .mc-back {
+    svg {
+      polyline {
+        stroke: @mainColor;
+      }
+    }
+  }
+}

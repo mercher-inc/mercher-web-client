@@ -1,4 +1,4 @@
-%h1.title{mc: {custom: {color: "{color: mainColor}"}}} Reviews
+%h1.title Reviews
 
 .review{ng: {repeat: "productReview in productReviews"}}
   .avatar
@@ -9,7 +9,7 @@
   .rating
     .mc-rating{rating: "productReview.rating"}
   .description
-    %h3.name{mc: {custom: {color: "{color: mainColor}"}}}
+    %h3.name
       {{ productReview.user.firstName }} {{ productReview.user.lastName }}
     %p.comment
       {{ productReview.comment }}

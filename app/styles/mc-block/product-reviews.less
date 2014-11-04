@@ -31,12 +31,14 @@
       .name {
         margin: 0 0 10px 0;
         color: @brand-primary;
+        .transition(color .5s);
         font-size: 16px;
         font-weight: normal;
       }
 
       .comment {
-        color: #18585a;
+        color: darken(@brand-primary, 25%);
+        .transition(color .5s);
         text-align: justify;
       }
     }

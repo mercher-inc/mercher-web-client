@@ -1,6 +1,7 @@
 &.product-other {
   flex-grow: 1;
   background: @brand-primary;
+  .transition(background .5s);
   width: 970px;
   color: white;
 
@@ -76,7 +77,8 @@
         }
 
         .title {
-          color: #333;
+          color: darken(@brand-primary, 25%);
+          .transition(color .5s);
           text-overflow: ellipsis;
           overflow: hidden;
           white-space: nowrap;
@@ -85,6 +87,7 @@
 
         .price {
           color: @brand-primary;
+          .transition(color .5s);
         }
 
       }

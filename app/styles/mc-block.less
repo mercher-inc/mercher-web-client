@@ -1,4 +1,5 @@
 @import "variables";
+
 // mcBlock
 .mc-block {
   flex-grow: 0;
@@ -14,6 +15,7 @@
     line-height: @mc-header-size;
     font-size: 40px;
     color: @brand-primary;
+    .transition(color .5s);
   }
 
   @import "mc-block/product-reviews";
