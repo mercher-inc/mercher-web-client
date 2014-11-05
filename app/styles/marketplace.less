@@ -4,9 +4,10 @@
     line-height: 60px;
     color: @brand-primary;
     font-weight: 300;
-    background: fadeout(white, 60%);
+    background: fadeout(white, 50%);
     display: block;
     position: fixed;
+    z-index: 100;
     top: 30px;
     left: 0;
     right: 0;
@@ -50,6 +51,77 @@
         &.active {
           border-bottom: 1px solid @brand-primary;
           height: 61px;
+        }
+      }
+    }
+  }
+
+  .products-list {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+    align-content: flex-start;
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    padding: 120px 60px 0 60px;
+    overflow-y: auto;
+
+    .product-card {
+      height: 300px;
+      width: 615px;
+      margin-right: 30px;
+      margin-bottom: 30px;
+      color: #777;
+
+      .images {
+        height: 300px;
+        width: 300px;
+        overflow: hidden;
+        float: left;
+        .image {
+          height: 300px;
+          width: 300px;
+        }
+      }
+
+      .description {
+        margin-left: 315px;
+        width: 300px;
+
+        > .title {
+          color: #777;
+          font-weight: 500;
+          margin-bottom: 15px;
+          display: inline-block;
+
+          .subtitle {
+            font-weight: 400;
+          }
+        }
+
+        > .shop {
+          font-style: italic;
+          margin-bottom: 15px;
+          .title {
+            color: darken(@brand-primary, 25%);
+          }
+        }
+
+        > .sell {
+          .price {
+            color: @brand-primary;
+            font-weight: 500;
+            margin-right: 15px;
+          }
+
+          .buy {
+
+          }
         }
       }
     }
