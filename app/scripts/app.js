@@ -41,9 +41,13 @@ angular
             /////////////////
 
             .state('marketplace', {
-                url:         '/marketplace',
-                templateUrl: 'views/marketplace.html',
-                controller:  'MarketplaceCtrl'
+                url:   '/marketplace',
+                views: {
+                    '': {
+                        templateUrl: 'views/marketplace.html',
+                        controller:  'MarketplaceCtrl'
+                    }
+                }
             })
 
             //////////

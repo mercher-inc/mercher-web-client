@@ -1,6 +1,5 @@
-%mc-page
-  %mc-page-tabs
-    %mc-page-pane{ng: {repeat: "category in categories", if: "category.products"}, image: "category.image", title: "category.title"}
-      .card{ng: {repeat: "product in category.products"}}
-        %img{ng: {repeat: "productImage in product.productImages"}, mc: {image: "productImage.image"}, size: "m"}
+.mc-page
+  .nav
+    .mc-menu
+
 
