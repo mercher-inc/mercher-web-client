@@ -1,9 +1,10 @@
 .mc-page.marketplace
   .nav
     .mc-menu
-    %a.logo{ui: {sref: "marketplace"}}
+    %a.logo{ui: {sref: "marketplace.top"}}
       .mc-logo
       MERCHIST
     .categories
-      %a.category{ng: {repeat: "category in categories"}}
+      %a.category{ng: {repeat: "category in categories"}, ui: {sref: "marketplace.category({categoryId: category.id})"}, "ui-sref-active" => "active"}
         {{ category.title }}
+  .products{ui: {view: true}}
