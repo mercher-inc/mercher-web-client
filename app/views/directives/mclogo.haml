@@ -1,0 +1,5 @@
+%svg{:width => "60px", :height => "60px"}
+
+  %g{:stroke => "none", :fill => "#3DA3A7"}
+    %polygon{ng: {repeat: "polygon in polygons"}, "ng-attr-points" => "{{ polygon.printPoint() }}"}
+
