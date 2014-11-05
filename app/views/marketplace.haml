@@ -4,3 +4,6 @@
     %a.logo{ui: {sref: "marketplace"}}
       .mc-logo
       MERCHIST
+    .categories
+      %a.category{ng: {repeat: "category in categories"}}
+        {{ category.title }}

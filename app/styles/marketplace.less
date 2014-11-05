@@ -22,10 +22,34 @@
       font-weight: 200;
       padding: 0 20px 0 10px;
 
-      &:hover, &:active, &:visited {
+      &:hover, &:active {
         text-decoration: none;
         color: @brand-primary;
         background: fadeout(black, 95%);
+      }
+    }
+
+    .categories {
+      display: block;
+      float: right;
+      height: 60px;
+      margin-right: 60px;
+      text-transform: uppercase;
+
+      .category {
+        height: 60px;
+        padding: 0 10px;
+        display: inline-block;
+
+        &:hover, &:active {
+          text-decoration: none;
+          color: @brand-primary;
+          background: fadeout(black, 95%);
+        }
+
+        &.active {
+          border-bottom: 1px solid @brand-primary;
+        }
       }
     }
   }

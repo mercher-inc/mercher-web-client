@@ -24,8 +24,6 @@ angular.module('mercherWebClientApp')
                     sz = 40,
                     sp = (60 - sz) / 2;
 
-                console.log(sp);
-
                 scope.lines = {
                     vertical: {
                         left:   { A: -1, B: 0, C: sp },
