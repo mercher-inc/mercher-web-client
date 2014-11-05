@@ -1,0 +1,32 @@
+&.marketplace {
+  .nav {
+    height: 60px;
+    line-height: 60px;
+    color: @brand-primary;
+    font-weight: 300;
+    background: fadeout(white, 60%);
+    display: block;
+    position: fixed;
+    top: 30px;
+    left: 0;
+    right: 0;
+
+    .mc-menu, .logo, .mc-logo {
+      display: block;
+      float: left;
+      height: 60px;
+    }
+
+    .logo {
+      font-size: 32px;
+      font-weight: 200;
+      padding: 0 10px;
+
+      &:hover, &:active, &:visited {
+        text-decoration: none;
+        color: @brand-primary;
+        background: fadeout(black, 95%);
+      }
+    }
+  }
+}

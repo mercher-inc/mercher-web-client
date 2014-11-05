@@ -19,17 +19,21 @@ angular.module('mercherWebClientApp')
                     };
                 };
 
-                var w = 6,
-                    p = 2;
+                var w = 5,
+                    p = 1,
+                    sz = 40,
+                    sp = (60 - sz) / 2;
+
+                console.log(sp);
 
                 scope.lines = {
                     vertical: {
-                        left:   { A: -1, B: 0, C: 6 },
-                        right:  { A: -1, B: 0, C: 60 - 6 },
-                        left1:  { A: -1, B: 0, C: 6 + w },
-                        left2:  { A: -1, B: 0, C: 6 + w + p },
-                        left3:  { A: -1, B: 0, C: 6 + w + p + w },
-                        left4:  { A: -1, B: 0, C: 6 + w + p + w + p },
+                        left:   { A: -1, B: 0, C: sp },
+                        right:  { A: -1, B: 0, C: 60 - sp },
+                        left1:  { A: -1, B: 0, C: sp + w },
+                        left2:  { A: -1, B: 0, C: sp + w + p },
+                        left3:  { A: -1, B: 0, C: sp + w + p + w },
+                        left4:  { A: -1, B: 0, C: sp + w + p + w + p },
                         center: { A: -1, B: 0, C: 60 / 2 }
                     }
                 };
@@ -141,12 +145,12 @@ angular.module('mercherWebClientApp')
                 });
 
                 scope.polygons.bigTop.points.push({
-                    x: 54,
+                    x: 60 - sp,
                     y: (scope.lines.horizontal.left1.C * scope.lines.vertical.left.A - scope.lines.horizontal.left1.A * scope.lines.vertical.left.C) / (scope.lines.horizontal.left1.A * scope.lines.vertical.left.B - scope.lines.horizontal.left1.B * scope.lines.vertical.left.A)
                 });
 
                 scope.polygons.bigTop.points.push({
-                    x: 54,
+                    x: 60 - sp,
                     y: (scope.lines.horizontal.left2.C * scope.lines.vertical.left.A - scope.lines.horizontal.left2.A * scope.lines.vertical.left.C) / (scope.lines.horizontal.left2.A * scope.lines.vertical.left.B - scope.lines.horizontal.left2.B * scope.lines.vertical.left.A)
                 });
 
@@ -171,12 +175,12 @@ angular.module('mercherWebClientApp')
                 });
 
                 scope.polygons.bigBottom.points.push({
-                    x: 54,
+                    x: 60 - sp,
                     y: (scope.lines.horizontal.left3.C * scope.lines.vertical.left.A - scope.lines.horizontal.left3.A * scope.lines.vertical.left.C) / (scope.lines.horizontal.left3.A * scope.lines.vertical.left.B - scope.lines.horizontal.left3.B * scope.lines.vertical.left.A)
                 });
 
                 scope.polygons.bigBottom.points.push({
-                    x: 54,
+                    x: 60 - sp,
                     y: (scope.lines.horizontal.left4.C * scope.lines.vertical.left.A - scope.lines.horizontal.left4.A * scope.lines.vertical.left.C) / (scope.lines.horizontal.left4.A * scope.lines.vertical.left.B - scope.lines.horizontal.left4.B * scope.lines.vertical.left.A)
                 });
 
