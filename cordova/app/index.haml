@@ -7,14 +7,11 @@
     %meta{name: "language", content: "en"}/
     %meta{name: "description", content: ""}/
     %title Mercher
-
     / build:css({.tmp,app}) styles/vendor.css
     / bower:css
     / endbower
     / endbuild
     %link{rel: "stylesheet", href: "styles/main.css"}
-
-    %style.mc-colorize{type: "text/css"}
   %body{ng: {app: "mercherWebClientApp"}}
     #fb-root
     %div{ui: {view: true}}
@@ -53,3 +50,4 @@
     %script{src: "/scripts/services/product_image.js"}
     %script{src: "/scripts/modules/facebook.js"}
     / endbuild
+    %style.mc-colorize{type: "text/css"}

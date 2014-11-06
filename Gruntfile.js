@@ -83,9 +83,11 @@ module.exports = function (grunt) {
                         namespace: process.env.FB_NAMESPACE || 'mercher_local'
                     },
                     pathConfig:     {
-                        api:    '/api/v1/',
-                        views:  '/views/',
-                        socket: '/'
+                        api:     '/api/v1/',
+                        views:   '/views/',
+                        styles:  '/styles/',
+                        uploads: '/uploads/',
+                        socket:  '/'
                     },
                     appConfig:      {
                         html5Mode: true
@@ -99,9 +101,11 @@ module.exports = function (grunt) {
                         namespace: process.env.FB_NAMESPACE || 'mercher_local'
                     },
                     pathConfig:     {
-                        api:    'http://staging.mercherdev.com/api/v1/',
-                        views:  'views/',
-                        socket: 'http://staging.mercherdev.com/'
+                        api:     'http://staging.mercherdev.com/api/v1/',
+                        views:   'views/',
+                        styles:  'styles/',
+                        uploads: 'http://staging.mercherdev.com/uploads/',
+                        socket:  'http://staging.mercherdev.com/'
                     },
                     appConfig:      {
                         html5Mode: false

@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('mercherWebClientApp')
-    .directive('mcImage', function ($window) {
+    .directive('mcImage', function ($window, pathConfig) {
         return {
             restrict: 'A',
             scope:    {
@@ -37,7 +37,7 @@ angular.module('mercherWebClientApp')
 
                 function setImage(image, size) {
                     if (image.files && image.files[size] && image.files[size][devicePixelRatioName] && image.files[size][devicePixelRatioName].file) {
-                        element.attr('src', '/uploads/' + image.key + '/' + image.files[size][devicePixelRatioName].file);
+                        element.attr('src', pathConfig.uploads + image.key + '/' + image.files[size][devicePixelRatioName].file);
                     } else {
                         element.attr('src', '/images/default100.png');
                     }
