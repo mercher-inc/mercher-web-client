@@ -1,8 +1,8 @@
 .products-list
   .product-card-wrapper{ng: {repeat: "product in products"}}
     .product-card
-      %a.images.mc-image-spinner{ui: {sref: "product({productId: product.id})"}}
-        %img.image{mc: {image: "productImage.image"}, size: "m", ng: {repeat: "productImage in product.productImages"}}
+      %a.images{ui: {sref: "product({productId: product.id})"}}
+        %img.image{mc: {image: "product.productImages[0].image"}, size: "m", ng: {if: "product.productImages.length"}}
       .description
         %a.title{ui: {sref: "product({productId: product.id})"}}
           {{ product.title }}
