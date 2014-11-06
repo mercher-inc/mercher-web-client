@@ -1,15 +1,16 @@
 .products-list
-  .product-card{ng: {repeat: "product in products"}}
-    %a.images{ui: {sref: "product({productId: product.id})"}}
-      %img.image{mc: {image: "productImage.image"}, size: "m", ng: {repeat: "productImage in product.productImages"}}
-    .description
-      %a.title{ui: {sref: "product({productId: product.id})"}}
-        {{ product.title }}
-        %span.subtitle{ng: {if: "product.subtitle"}}
-          \/ {{ product.subtitle }}
-      .shop
-        From:
-        %a.title{ui: {sref: "shop({shopId: product.shop.id})"}} {{ product.shop.title }}
-      .sell{ng: {if: "product.price"}}
-        %span.price {{ product.price | currency }}
-        %button.buy.btn.btn-default.btn-sm BUY
+  .product-card-wrapper{ng: {repeat: "product in products"}}
+    .product-card
+      %a.images.mc-image-spinner{ui: {sref: "product({productId: product.id})"}}
+        %img.image{mc: {image: "productImage.image"}, size: "m", ng: {repeat: "productImage in product.productImages"}}
+      .description
+        %a.title{ui: {sref: "product({productId: product.id})"}}
+          {{ product.title }}
+          %span.subtitle{ng: {if: "product.subtitle"}}
+            \/ {{ product.subtitle }}
+        .shop
+          From:
+          %a.title{ui: {sref: "shop({shopId: product.shop.id})"}} {{ product.shop.title }}
+        .sell{ng: {if: "product.price"}}
+          %span.price {{ product.price | currency }}
+          %button.buy.btn.btn-default.btn-sm BUY
