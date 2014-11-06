@@ -1,5 +1,5 @@
 .products-list
-  .product-card.mc-marketplace-product-card{ng: {repeat: "product in products"}}
+  .product-card{ng: {repeat: "product in products"}}
     %a.images{ui: {sref: "product({productId: product.id})"}}
       %img.image{mc: {image: "productImage.image"}, size: "m", ng: {repeat: "productImage in product.productImages"}}
     .description
