@@ -4,3 +4,6 @@ dist
 .tmp
 bower_components
 coverage
+/cordova/www
+/cordova/platforms
+/cordova/plugins
