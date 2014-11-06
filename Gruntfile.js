@@ -12,11 +12,12 @@ module.exports = function (grunt) {
 
     // Configurable paths for the application
     var appConfig = {
-        app:    'app',
-        dist:   'dist',
-        test:   'test',
-        config: 'config',
-        tmp:    '.tmp'
+        app:     'app',
+        dist:    'dist',
+        test:    'test',
+        config:  'config',
+        tmp:     '.tmp',
+        cordova: 'cordova/dist'
     };
 
     try {
@@ -72,26 +73,54 @@ module.exports = function (grunt) {
 
         ngconstant:    {
             options: {
-                name:      'config',
-                dest:      '<%= yeoman.tmp %>/scripts/config.js',
+                name: 'config',
+                dest: '<%= yeoman.tmp %>/scripts/config.js'
+            },
+            dist:    {
                 constants: {
                     facebookConfig: {
                         appId:     process.env.FB_APP_ID || '721263977929363',
                         namespace: process.env.FB_NAMESPACE || 'mercher_local'
+                    },
+                    pathConfig:     {
+                        api:     '/api/v1/',
+                        views:   '/views/',
+                        styles:  '/styles/',
+                        uploads: '/uploads/',
+                        socket:  '/'
+                    },
+                    appConfig:      {
+                        html5Mode: true
                     }
-                },
-                values:    {
-                    debug: true
                 }
             },
-            dist:    {
+            cordova: {
+                constants: {
+                    facebookConfig: {
+                        appId:     process.env.FB_APP_ID || '721263977929363',
+                        namespace: process.env.FB_NAMESPACE || 'mercher_local'
+                    },
+                    pathConfig:     {
+                        api:     'http://staging.mercherdev.com/api/v1/',
+                        views:   'views/',
+                        styles:  'styles/',
+                        uploads: 'http://staging.mercherdev.com/uploads/',
+                        socket:  'http://staging.mercherdev.com/'
+                    },
+                    appConfig:      {
+                        html5Mode: false
+                    }
+                }
             }
         },
 
         // Compiles HAML to HTML
         haml:          {
             options: {
-                format: 'html5'
+                format:    'html5',
+                variables: {
+                    basepath: 'http://localhost/'
+                }
             },
             dist:    {
                 expand: true,
@@ -99,16 +128,41 @@ module.exports = function (grunt) {
                 src:    '**/*.haml',
                 dest:   '<%= yeoman.tmp %>',
                 ext:    '.html'
+            },
+            cordova: {
+                files: [
+                    {
+                        expand: true,
+                        cwd:    '<%= yeoman.app %>',
+                        src:    '**/*.haml',
+                        dest:   '<%= yeoman.cordova %>/www',
+                        ext:    '.html'
+                    },
+                    {
+                        expand: true,
+                        cwd:    'cordova/app',
+                        src:    'index.haml',
+                        dest:   '<%= yeoman.tmp %>',
+                        ext:    '.html'
+                    }
+                ]
             }
         },
 
         // Compiles LESS to CSS
         less:          {
-            dist: {
+            dist:    {
                 expand: true,
                 cwd:    '<%= yeoman.app %>/styles',
                 src:    'main.less',
                 dest:   '<%= yeoman.tmp %>/styles',
+                ext:    '.css'
+            },
+            cordova: {
+                expand: true,
+                cwd:    '<%= yeoman.app %>/styles',
+                src:    'main.less',
+                dest:   '<%= yeoman.cordova %>/www/styles',
                 ext:    '.css'
             }
         },
@@ -191,7 +245,7 @@ module.exports = function (grunt) {
 
         // Empties folders to start fresh
         clean:         {
-            dist:   {
+            dist:        {
                 files: [
                     {
                         dot: true,
@@ -203,7 +257,29 @@ module.exports = function (grunt) {
                     }
                 ]
             },
-            server: '<%= yeoman.tmp %>'
+            server:      '<%= yeoman.tmp %>',
+            cordova:     {
+                files: [
+                    {
+                        dot: true,
+                        src: [
+                            '<%= yeoman.tmp %>',
+                            '<%= yeoman.cordova %>/{,*/}*'
+                        ]
+                    }
+                ]
+            },
+            cordova_res: {
+                files: [
+                    {
+                        dot: true,
+                        src: [
+                            '<%= yeoman.cordova %>/platforms/android/res/{,*/}*.png',
+                            '<%= yeoman.cordova %>/www/{,*/}*'
+                        ]
+                    }
+                ]
+            }
         },
 
         // Add vendor prefixed styles
@@ -337,7 +413,7 @@ module.exports = function (grunt) {
         },
 
         copy:       {
-            dist: {
+            dist:    {
                 files: [
                     {
                         expand: true,
@@ -365,27 +441,72 @@ module.exports = function (grunt) {
                         dest:   '<%= yeoman.dist %>'
                     }
                 ]
+            },
+            cordova: {
+                files: [
+                    {
+                        expand: true,
+                        dot:    true,
+                        cwd:    '<%= yeoman.app %>',
+                        dest:   '<%= yeoman.cordova %>/www',
+                        src:    [
+                            'images/{,*/}*',
+                            'styles/colorize.less',
+                            'fonts/*'
+                        ]
+                    },
+                    {
+                        expand: true,
+                        dot:    true,
+                        cwd:    '<%= yeoman.tmp %>',
+                        dest:   '<%= yeoman.cordova %>/www',
+                        src:    [
+                            'index.html'
+                        ]
+                    },
+                    {
+                        expand: true,
+                        dot:    true,
+                        cwd:    '<%= yeoman.tmp %>/concat',
+                        dest:   '<%= yeoman.cordova %>/www',
+                        src:    [
+                            'scripts/{,*/}*.js'
+                        ]
+                    },
+                    {
+                        expand: true,
+                        dot:    true,
+                        cwd:    'res/android',
+                        dest:   '<%= yeoman.cordova %>/platforms/android/res',
+                        src:    '{,*/}*.png'
+                    }
+                ]
             }
         },
 
         // Run some tasks in parallel to speed up the build process
         concurrent: {
-            server: [
+            server:  [
                 'haml:dist',
                 'less:dist',
                 'ngconstant:dist'
             ],
-            test:   [
+            test:    [
                 'haml:dist',
                 'less:dist',
                 'ngconstant:dist'
             ],
-            dist:   [
+            dist:    [
                 'haml:dist',
                 'less:dist',
                 'imagemin',
                 'svgmin',
                 'ngconstant:dist'
+            ],
+            cordova: [
+                'haml:cordova',
+                'less:cordova',
+                'ngconstant:cordova'
             ]
         },
 
@@ -416,6 +537,38 @@ module.exports = function (grunt) {
                             type: 'teamcity'
                         }
                     ]
+                }
+            }
+        },
+
+        cordovacli: {
+            options:       {
+                id:   'net.mercher.client',
+                name: 'Mercher',
+                path: '<%= yeoman.cordova %>'
+            },
+            create:        {
+                options: {
+                    command: 'create'
+                }
+            },
+            add_platforms: {
+                options: {
+                    command:   'platform',
+                    action:    'add',
+                    platforms: ['android']
+                }
+            },
+            build_android: {
+                options: {
+                    command:   'build',
+                    platforms: ['android']
+                }
+            },
+            run_android:   {
+                options: {
+                    command:   'run',
+                    platforms: ['android']
                 }
             }
         }
@@ -464,6 +617,31 @@ module.exports = function (grunt) {
         'filerev',
         'usemin',
         'htmlmin'
+    ]);
+
+    grunt.registerTask('cordova_prepare', function () {
+        grunt.task.run([
+            'clean:cordova',
+            'cordovacli:create',
+            'cordovacli:add_platforms',
+            'clean:cordova_res',
+            'concurrent:cordova',
+            'wiredep',
+            'useminPrepare',
+            'concat',
+            'usemin',
+            'copy:cordova'
+        ]);
+    });
+
+    grunt.registerTask('build_android', [
+        'cordova_prepare',
+        'cordovacli:build_android'
+    ]);
+
+    grunt.registerTask('run_android', [
+        'cordova_prepare',
+        'cordovacli:run_android'
     ]);
 
     grunt.registerTask('default', [

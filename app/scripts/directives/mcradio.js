@@ -1,13 +1,13 @@
 'use strict';
 
 angular.module('mercherWebClientApp')
-    .directive('mcRadio', function () {
+    .directive('mcRadio', function (pathConfig) {
         return {
             restrict:          'C',
             scope:             {
                 color: '=color'
             },
             templateNamespace: 'svg',
-            templateUrl:       '/views/directives/mcradio.html'
+            templateUrl:       pathConfig.views + 'directives/mcradio.html'
         };
     });

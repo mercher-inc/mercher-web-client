@@ -1,11 +1,11 @@
 'use strict';
 
 angular.module('mercherWebClientApp')
-    .directive('mcLogo', function () {
+    .directive('mcLogo', function (pathConfig) {
         return {
             restrict:          'C',
             templateNamespace: 'svg',
-            templateUrl:       '/views/directives/mclogo.html',
+            templateUrl:       pathConfig.views + 'directives/mclogo.html',
             link:              function (scope, element) {
 
                 var Polygon = function () {
