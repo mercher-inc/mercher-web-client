@@ -41,9 +41,22 @@ angular
             /////////////////
 
             .state('marketplace', {
+                abstract:    true,
                 url:         '/marketplace',
                 templateUrl: 'views/marketplace.html',
                 controller:  'MarketplaceCtrl'
+            })
+
+            .state('marketplace.top', {
+                url:         '',
+                templateUrl: 'views/marketplace/top.html',
+                controller:  'MarketplaceTopCtrl'
+            })
+
+            .state('marketplace.category', {
+                url:         '/categories/:categoryId',
+                templateUrl: 'views/marketplace/category.html',
+                controller:  'MarketplaceCategoryCtrl'
             })
 
             //////////
