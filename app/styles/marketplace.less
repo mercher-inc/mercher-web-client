@@ -74,11 +74,13 @@
     overflow-y: auto;
 
     .product-card {
-      height: 300px;
+      min-height: 200px;
+      max-height: 400px;
       width: 615px;
       margin-right: 30px;
       margin-bottom: 30px;
       color: #777;
+      flex-grow: 1;
 
       .images {
         height: 300px;
@@ -86,8 +88,8 @@
         overflow: hidden;
         float: left;
         .image {
-          height: 300px;
-          width: 300px;
+          height: 100%;
+          width: 100%;
         }
       }
 
