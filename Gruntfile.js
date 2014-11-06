@@ -418,6 +418,25 @@ module.exports = function (grunt) {
                     ]
                 }
             }
+        },
+
+        cordovacli: {
+            options: {
+                id:   'net.mercher.client',
+                name: 'Mercher',
+                path: 'cordova'
+            },
+            cordova: {
+                options: {
+                    command:   ['create','platform', 'build'],
+                    platforms: ['android']
+                }
+            },
+            create: {
+                options: {
+                    command: 'create'
+                }
+            }
         }
     });
 

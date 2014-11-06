@@ -29,6 +29,7 @@
         "grunt-contrib-less":       "^0.11",
         "grunt-contrib-uglify":     "^0.6",
         "grunt-contrib-watch":      "^0.6",
+        "grunt-cordovacli":         "latest",
         "grunt-filerev":            "^2",
         "grunt-karma":              "^0.9",
         "grunt-newer":              "^0.7",
