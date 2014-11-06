@@ -1,13 +1,13 @@
 'use strict';
 
 angular.module('mercherWebClientApp')
-    .directive('mcBack', function () {
+    .directive('mcBack', function (pathConfig) {
         return {
             restrict:          'C',
             scope:             {
                 color: '=color'
             },
             templateNamespace: 'svg',
-            templateUrl:       '/views/directives/mcback.html'
+            templateUrl:       pathConfig.views + 'directives/mcback.html'
         };
     });

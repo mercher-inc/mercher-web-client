@@ -19,9 +19,9 @@ angular
         'ngTouch',
         'mc.module.facebook'
     ])
-    .config(function ($locationProvider, $urlRouterProvider, $stateProvider, facebookProvider, facebookConfig) {
+    .config(function ($locationProvider, $urlRouterProvider, $stateProvider, facebookProvider, facebookConfig, pathConfig, appConfig) {
         $locationProvider
-            .html5Mode(true)
+            .html5Mode(appConfig.html5Mode)
             .hashPrefix('!');
         $urlRouterProvider.otherwise('/');
         $stateProvider
@@ -32,7 +32,7 @@ angular
 
             .state('marketing', {
                 url:         '/',
-                templateUrl: 'views/marketing.html',
+                templateUrl: pathConfig.views + 'marketing.html',
                 controller:  'MarketingCtrl'
             })
 
@@ -43,19 +43,19 @@ angular
             .state('marketplace', {
                 abstract:    true,
                 url:         '/marketplace',
-                templateUrl: 'views/marketplace.html',
+                templateUrl: pathConfig.views + 'marketplace.html',
                 controller:  'MarketplaceCtrl'
             })
 
             .state('marketplace.top', {
                 url:         '',
-                templateUrl: 'views/marketplace/top.html',
+                templateUrl: pathConfig.views + 'marketplace/top.html',
                 controller:  'MarketplaceTopCtrl'
             })
 
             .state('marketplace.category', {
                 url:         '/categories/:categoryId',
-                templateUrl: 'views/marketplace/category.html',
+                templateUrl: pathConfig.views + 'marketplace/category.html',
                 controller:  'MarketplaceCategoryCtrl'
             })
 
@@ -75,19 +75,19 @@ angular
                 url:   '/products/:productId',
                 views: {
                     '':                {
-                        templateUrl: 'views/product.html',
+                        templateUrl: pathConfig.views + 'product.html',
                         controller:  'ProductCtrl'
                     },
                     'details@product': {
-                        templateUrl: 'views/product/details.html',
+                        templateUrl: pathConfig.views + 'product/details.html',
                         controller:  'ProductDetailsCtrl'
                     },
                     'reviews@product': {
-                        templateUrl: 'views/product/reviews.html',
+                        templateUrl: pathConfig.views + 'product/reviews.html',
                         controller:  'ProductReviewsCtrl'
                     },
                     'other@product':   {
-                        templateUrl: 'views/product/other.html',
+                        templateUrl: pathConfig.views + 'product/other.html',
                         controller:  'ProductOtherCtrl'
                     }
                 }

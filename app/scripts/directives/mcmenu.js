@@ -1,10 +1,10 @@
 'use strict';
 
 angular.module('mercherWebClientApp')
-    .directive('mcMenu', function () {
+    .directive('mcMenu', function (pathConfig) {
         return {
             restrict:          'C',
             templateNamespace: 'svg',
-            templateUrl:       '/views/directives/mcmenu.html'
+            templateUrl:       pathConfig.views + 'directives/mcmenu.html'
         };
     });

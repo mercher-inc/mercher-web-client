@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('mercherWebClientApp')
-    .factory('ProductImageResource', function ($resource) {
-        return $resource('/api/v1/products/:productId/product_images', {productId: '@productId'});
+    .factory('ProductImageResource', function ($resource, pathConfig) {
+        return $resource(pathConfig.api + 'products/:productId/product_images', {productId: '@productId'});
     }
 );

@@ -1,14 +1,14 @@
 'use strict';
 
 angular.module('mercherWebClientApp')
-    .directive('mcProductImagesBlock', function ($window) {
+    .directive('mcProductImagesBlock', function ($window, pathConfig) {
         return {
             require:     '^mcPage',
             restrict:    'C',
             scope:       {
                 productImages: '=productImages'
             },
-            templateUrl: '/views/directives/mcproductimagesblock.html',
+            templateUrl: pathConfig.views + 'directives/mcproductimagesblock.html',
             link:        function (scope, element) {
                 element.bind('wheel', function (e) {
                     e.preventDefault();

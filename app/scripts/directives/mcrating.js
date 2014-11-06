@@ -1,13 +1,13 @@
 'use strict';
 
 angular.module('mercherWebClientApp')
-    .directive('mcRating', function () {
+    .directive('mcRating', function (pathConfig) {
         return {
-            restrict: 'C',
-            scope:    {
+            restrict:          'C',
+            scope:             {
                 rating: '=rating'
             },
             templateNamespace: 'svg',
-            templateUrl: '/views/directives/mcrating.html'
+            templateUrl:       pathConfig.views + 'directives/mcrating.html'
         };
     });

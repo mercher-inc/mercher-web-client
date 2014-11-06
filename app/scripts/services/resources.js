@@ -1,32 +1,32 @@
 'use strict';
 
 angular.module('mercherWebClientApp')
-    .factory('Auth', ['$resource', function ($resource) {
+    .factory('Auth', ['$resource', 'pathConfig', function ($resource, pathConfig) {
         return $resource(
-            '/api/v1/auth',
+                pathConfig.api + 'auth',
             null,
             {
                 'signUp':   {
                     method:       'POST',
-                    url:          '/api/v1/auth/sign_up',
+                    url:          pathConfig.api + 'auth/sign_up',
                     responseType: 'json'
                 },
                 'basic':    {
                     method:       'POST',
-                    url:          '/api/v1/auth/basic',
+                    url:          pathConfig.api + 'auth/basic',
                     responseType: 'json'
                 },
                 'facebook': {
                     method:       'POST',
-                    url:          '/api/v1/auth/facebook',
+                    url:          pathConfig.api + 'auth/facebook',
                     responseType: 'json'
                 }
             }
         );
     }])
-    .factory('User', ['$resource', function ($resource) {
+    .factory('User', ['$resource', 'pathConfig', function ($resource, pathConfig) {
         return $resource(
-            '/api/v1/users',
+                pathConfig.api + 'users',
             null,
             {
                 'query': {
@@ -35,22 +35,22 @@ angular.module('mercherWebClientApp')
                 },
                 'get':   {
                     method:       'GET',
-                    url:          '/api/v1/users/:userId',
+                    url:          pathConfig.api + 'users/:userId',
                     params:       {userId: '@userId'},
                     responseType: 'json'
                 },
                 'save':  {
                     method:       'PUT',
-                    url:          '/api/v1/users/:userId',
+                    url:          pathConfig.api + 'users/:userId',
                     params:       {userId: '@userId'},
                     responseType: 'json'
                 }
             }
         );
     }])
-    .factory('Categories', ['$resource', function ($resource) {
+    .factory('Categories', ['$resource', 'pathConfig', function ($resource, pathConfig) {
         return $resource(
-            '/api/v1/categories',
+                pathConfig.api + 'categories',
             null,
             {
                 'query': {
@@ -59,22 +59,22 @@ angular.module('mercherWebClientApp')
                 },
                 'get':   {
                     method:       'GET',
-                    url:          '/api/v1/categories/:categoryId',
+                    url:          pathConfig.api + 'categories/:categoryId',
                     params:       {categoryId: '@categoryId'},
                     responseType: 'json'
                 },
                 'save':  {
                     method:       'PUT',
-                    url:          '/api/v1/categories/:categoryId',
+                    url:          pathConfig.api + 'categories/:categoryId',
                     params:       {categoryId: '@categoryId'},
                     responseType: 'json'
                 }
             }
         );
     }])
-    .factory('Products', ['$resource', function ($resource) {
+    .factory('Products', ['$resource', 'pathConfig', function ($resource, pathConfig) {
         return $resource(
-            '/api/v1/products',
+                pathConfig.api + 'products',
             null,
             {
                 'query':            {
@@ -83,71 +83,71 @@ angular.module('mercherWebClientApp')
                 },
                 'queryForCategory': {
                     method:       'GET',
-                    url:          '/api/v1/categories/:categoryId/products',
+                    url:          pathConfig.api + 'categories/:categoryId/products',
                     params:       {categoryId: '@categoryId'},
                     responseType: 'json'
                 },
                 'get':              {
                     method:       'GET',
-                    url:          '/api/v1/products/:productId',
+                    url:          pathConfig.api + 'products/:productId',
                     params:       {productId: '@productId'},
                     responseType: 'json'
                 },
                 'save':             {
                     method:       'PUT',
-                    url:          '/api/v1/products/:productId',
+                    url:          pathConfig.api + 'products/:productId',
                     params:       {productId: '@productId'},
                     responseType: 'json'
                 }
             }
         );
     }])
-    .factory('ProductImages', ['$resource', function ($resource) {
+    .factory('ProductImages', ['$resource', 'pathConfig', function ($resource, pathConfig) {
         return $resource(
-            '/api/v1/product_images',
+                pathConfig.api + 'product_images',
             null,
             {
                 'queryForProduct': {
                     method:       'GET',
-                    url:          '/api/v1/products/:productId/product_images',
+                    url:          pathConfig.api + 'products/:productId/product_images',
                     params:       {productId: '@productId'},
                     responseType: 'json'
                 },
                 'get':             {
                     method:       'GET',
-                    url:          '/api/v1/product_images/:productImageId',
+                    url:          pathConfig.api + 'product_images/:productImageId',
                     params:       {productImageId: '@productImageId'},
                     responseType: 'json'
                 },
                 'save':            {
                     method:       'PUT',
-                    url:          '/api/v1/product_images/:productImageId',
+                    url:          pathConfig.api + 'product_images/:productImageId',
                     params:       {productImageId: '@productImageId'},
                     responseType: 'json'
                 }
             }
         );
     }])
-    .factory('ProductReviews', ['$resource', function ($resource) {
+    .factory('ProductReviews', ['$resource', 'pathConfig', function ($resource, pathConfig) {
         return $resource(
-            '/api/v1/product_reviews',
+                pathConfig.api + 'product_reviews',
             null,
             {
                 'queryForProduct': {
                     method:       'GET',
-                    url:          '/api/v1/products/:productId/product_reviews',
+                    url:          pathConfig.api + 'products/:productId/product_reviews',
                     params:       {productId: '@productId'},
                     responseType: 'json'
                 },
                 'get':             {
                     method:       'GET',
-                    url:          '/api/v1/product_reviews/:productReviewId',
+                    url:          pathConfig.api + 'product_reviews/:productReviewId',
                     params:       {productReviewId: '@productReviewId'},
                     responseType: 'json'
                 },
                 'save':            {
                     method:       'PUT',
-                    url:          '/api/v1/product_reviews/:productReviewId',
+                    url:          pathConfig.api + 'product_reviews/:productReviewId',
                     params:       {productReviewId: '@productReviewId'},
                     responseType: 'json'
                 }

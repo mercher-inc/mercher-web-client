@@ -8,8 +8,8 @@
  * Factory in the mercherWebClientApp.
  */
 angular.module('mercherWebClientApp')
-    .factory('socket', function ($rootScope, $log) {
-        var socket = window.io.connect('/');
+    .factory('socket', function ($rootScope, $log, pathConfig) {
+        var socket = window.io.connect(pathConfig.socket);
 
         socket.on('connect', function () {
             $log.info('Socket connection established');

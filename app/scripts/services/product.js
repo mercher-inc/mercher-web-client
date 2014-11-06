@@ -1,9 +1,9 @@
 'use strict';
 
 angular.module('mercherWebClientApp')
-    .factory('ProductResource', function ($resource) {
+    .factory('ProductResource', function ($resource, pathConfig) {
         return $resource(
-            '/api/v1/products',
+                pathConfig.api + 'products',
             {},
             {
                 list:            {
@@ -18,21 +18,21 @@ angular.module('mercherWebClientApp')
                 },
                 get:             {
                     method: 'GET',
-                    url:    '/api/v1/products/:productId',
+                    url:    pathConfig.api + 'products/:productId',
                     params: {
                         productId: '@productId'
                     }
                 },
                 update:          {
                     method: 'PUT',
-                    url:    '/api/v1/products/:productId',
+                    url:    pathConfig.api + 'products/:productId',
                     params: {
                         productId: '@productId'
                     }
                 },
                 listForCategory: {
                     method: 'GET',
-                    url:    '/api/v1/categories/:categoryId/products',
+                    url:    pathConfig.api + 'categories/:categoryId/products',
                     params: {
                         categoryId: '@categoryId',
                         limit:      '@limit',
@@ -41,7 +41,7 @@ angular.module('mercherWebClientApp')
                 },
                 listForShop:     {
                     method: 'GET',
-                    url:    '/api/v1/shops/:shopId/products',
+                    url:    pathConfig.api + 'shops/:shopId/products',
                     params: {
                         shopId: '@shopId',
                         limit:  '@limit',
