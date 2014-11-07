@@ -264,6 +264,7 @@ module.exports = function (grunt) {
                         dot: true,
                         src: [
                             '<%= yeoman.tmp %>',
+                            '<%= yeoman.dist %>',
                             '<%= yeoman.cordova %>/{,*/}*'
                         ]
                     }
